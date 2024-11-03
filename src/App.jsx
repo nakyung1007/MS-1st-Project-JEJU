@@ -1,10 +1,17 @@
 import './App.css'
+import AppRoutes from "./route/AppRoutes.jsx";
+import {BrowserRouter} from "react-router-dom";
+import Reserved from "./component/text/Reserved.jsx";
+import {DataProvider} from "./context/DataContext.jsx";
 
 const App = () => {
     return (
-        <>
-            메인입니다~
-        </>
+        <DataProvider>
+            <BrowserRouter>
+                <AppRoutes/>
+                <Reserved/>
+            </BrowserRouter>
+        </DataProvider>
     );
 };
 
