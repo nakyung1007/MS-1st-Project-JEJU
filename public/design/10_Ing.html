@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>생성중</title>
+  <style>
+     /* 기본 스타일 설정 */
+    @font-face {
+    font-family: 'RixXladywatermelonR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* 전체 페이지 스타일 */   
+    body {
+      font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */      
+      display: flex;
+      justify-content: center; /* 수평 방향 중앙 정렬 */ 
+      align-items: center; /* 수직 중앙 정렬 */
+      flex-direction: column;/* 정렬 방향 설정 */
+       /* 여백 제거 */
+      margin: 0; 
+      padding: 0;
+    }
+    /* 설명 첫번쨰줄 */
+    .jeju-1 {
+        position: fixed;
+        font-size: 3em;
+        text-align: center;
+        margin-top: 125vh;
+        z-index: 1;
+        color: gray;
+    }
+    /* 설명 두번째 줄 */
+    .jeju-2 {
+        position: fixed;
+        font-size: 3em;
+        text-align: center;
+        margin-top: 145vh;
+        z-index: 1;
+        color: gray;
+    }
+    /* 별 이미지 스타일 */
+    .gul {
+      position: absolute;
+      animation: slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+      animation-iteration-count: infinite; /* 애니메이션을 한 번만 반복 */
+    }
+
+    .gul-1 {
+      width: 10vw; /* 별 크기 */
+      height: 15vh; /* 별 크기 */
+      top: 28%; left: 27%;
+      animation-delay: 0s;
+    }    
+    .gul-2 {
+      width: 10vw; /* 별 크기 */
+      height: 15vh; /* 별 크기 */
+      top: 28%;
+      animation-delay: 0.5s;
+    } 
+    .gul-3 {
+      width: 10vw; /* 별 크기 */
+      height: 15vh; /* 별 크기 */
+      top: 28%; right: 27%;
+      animation-delay: 1s;
+    }
+    .we{
+      display: fixed;
+      position: absolute;
+      bottom: 1%;
+      color: #adb5bd;
+    } 
+    /* 애니메이션 효과 */
+    @keyframes slide-top {
+      0% {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>  
+  <img class="gul gul-1 slide-top" src="./static/images/gul-1.jpg">
+  <img class="gul gul-2 slide-top" src="./static/images/gul-2.jpg">
+  <img class="gul gul-3 slide-top" src="./static/images/gul-3.jpg">
+
+    <p class="jeju-1 text-focus-in">입력해주신 내용으로 추천해드릴 곳을 찾고 있어요. </p>
+    <p class="jeju-2 text-focus-in">잠시만 기다려주세요 !</p>
+    <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>구성원</title>
+  <title>계절</title>
   <style>
     /* 기본 스타일 설정 */
     @font-face {
@@ -22,25 +22,16 @@
       margin: 0; 
       padding: 0;
        /* 배경 이미지 설정  */
-      background-image: url('./static/images/top_main.jpg');
+      background-image: url('./static/images/season.jpg');
       background-size: cover; /* 배경 이미지를 화면 전체에 맞춤 */
       background-position: center; /* 이미지가 가운데 오도록 설정 */
       background-attachment: fixed; /* 스크롤 시 배경이 고정되도록 설정 */
       background-repeat: no-repeat; /* 이미지 반복 방지 */
     }
-    .mung {
-      display: fixed;
-      position: absolute;
-      top: 22vh;
-      right: 26vw;
-      width: 110px;
-      height: 89px;
-      background: url('./static/images/mung.jpg') no-repeat center;
-      background-size: cover;
-      border : none;
-      cursor:pointer;
-      z-index: -1;
-    } 
+    .text-focus-in {
+    	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
+    }
     .text-focus-in {
     	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
@@ -52,20 +43,14 @@
       /* 중앙 정렬 */
       justify-content: center;
       font-size: 4.5em;
-      margin-top : 17vh;
+      margin-top : 33vh;
     }
     /* flex 버튼 컨테이너 */
     .button-container {
       display: flex;
-      flex-direction: column; /* 버튼 행을 수직으로 배치 */
+      gap: 5vw; /* 버튼 사이 간격 설정 */
+      justify-content: center;
   }
-    .button-row {
-      display: flex;
-        gap: 12vh; /* 버튼 사이 간격 */
-        justify-content: center;
-        margin-bottom:9vh;
-    }    
-
     .button {
       display: fixed;
       font-family: 'RixXladywatermelonR',sans-serif;
@@ -73,13 +58,13 @@
       color: black;
       border: none;
       border-radius: 5vh;
+      padding:  2vh 5vw;
       font-size: 2em;
       cursor: pointer;
       transition: background-color 0.3s;
-      padding : 2vh 4vw;
-      margin-top: 4vh;
+      margin-top: 29vh;
     }
-
+    /* 버튼 클릭시 색상 변경 */
     .button:hover {
       background-color: #feac36; /* 버튼 호버 색상 */
     }
@@ -114,7 +99,7 @@
       position: absolute;
       bottom: 1%;
       color: #adb5bd;
-    }    
+    } 
     @-webkit-keyframes text-focus-in {
       0% {
         -webkit-filter: blur(12px);
@@ -142,24 +127,15 @@
   </style>
 </head>
 <body>
-    <p class="text text-focus-in">제주, 누구와 함께 떠나시나요 ?</p>
-    <div class="mung"></div>
+    <p class="text text-focus-in">제주, 어느 계절에 떠나고 싶으신가요?</p>
     <div class="button-container">
-        <div class="button-row">
-            <button class="button">나혼자 씩씩하게</button>
-            <button class="button">친구와 사이좋게</button>
-          </div>
-          <div class="button-row">
-            <button class="button">부모님과 즐겁게</button>
-            <button class="button">아이와 손을잡고</button>
-          </div>
-          <div class="button-row">
-            <button class="button">연인과 다정하게</button>
-            <button class="button">반려동물과 함께</button>
-          </div>
-        </div>
-        <div class="icon-before"></div>
-        <div class="icon-next"></div>
+      <button class="button">&nbsp;봄&nbsp;</button>
+      <button class="button">여름</button>
+      <button class="button">가을</button>
+      <button class="button">겨울</button>
+    </div>
+    <div class="icon-before"></div>
+    <div class="icon-next"></div>
   <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
 </body>
 </html>

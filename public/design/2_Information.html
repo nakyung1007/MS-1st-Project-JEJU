@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>설명</title>
-    <style>
-      /* 기본 스타일 설정 */
-      @font-face {
-        font-family: "RixXladywatermelonR";
-        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2")
-          format("woff2");
-        font-weight: normal;
-        font-style: normal;
-      }
-      /* 전체 페이지 스타일 */
-      body {
-        font-family: "RixXladywatermelonR", sans-serif; /* 글꼴 설정 */
-        display: flex;
-        justify-content: center; /* 수평 방향 중앙 정렬 */
-        align-items: center; /* 수직 중앙 정렬 */
-        flex-direction: column; /* 정렬 방향 설정 */
-        /* 여백 제거 */
-        margin: 0;
-        padding: 0;
-        /* 배경 이미지 설정  */
-        background-image: url("./static/images/information.jpg");
-        background-size: cover; /* 배경 이미지를 화면 전체에 맞춤 */
-        background-position: center; /* 이미지가 가운데 오도록 설정 */
-        background-attachment: fixed; /* 스크롤 시 배경이 고정되도록 설정 */
-        background-repeat: no-repeat; /* 이미지 반복 방지 */
-      }
-      .jeju-1 {
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>설명</title>
+  <style>
+     /* 기본 스타일 설정 */
+    @font-face {
+    font-family: 'RixXladywatermelonR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* 전체 페이지 스타일 */   
+     body {
+      font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */      
+      display: flex;
+      justify-content: center; /* 수평 방향 중앙 정렬 */ 
+      align-items: center; /* 수직 중앙 정렬 */
+      flex-direction: column;/* 정렬 방향 설정 */
+       /* 여백 제거 */
+      margin: 0; 
+      padding: 0;
+       /* 배경 이미지 설정  */
+      background-image: url('./static/images/information.jpg');
+      background-size: cover; /* 배경 이미지를 화면 전체에 맞춤 */
+      background-position: center; /* 이미지가 가운데 오도록 설정 */
+      background-attachment: fixed; /* 스크롤 시 배경이 고정되도록 설정 */
+      background-repeat: no-repeat; /* 이미지 반복 방지 */
+    }
+    .jeju-1 {
         position: fixed;
         font-size: 2em;
         text-align: center;
@@ -38,8 +37,8 @@
         margin-left: 6vw;
         z-index: 1;
         color: gray;
-      }
-      .jeju-2 {
+    }
+    .jeju-2 {
         position: fixed;
         font-size: 2em;
         text-align: center;
@@ -47,94 +46,88 @@
         margin-left: 6vw;
         z-index: 1;
         color: gray;
-      }
-      /* 문구 애니메이션 */
-      .focus-in-expand-fwd {
-        -webkit-animation: focus-in-expand-fwd 0.8s
-          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        animation: focus-in-expand-fwd 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-          both;
-      }
-      /* 하단 아이콘 */
-      .icon-before {
-        display: fixed;
-        position: absolute;
-        bottom: 3%;
-        left: 2%;
-        width: 85px;
-        height: 93px;
-        background: url("./static/images/before_gul.jpg") no-repeat center;
-        background-size: cover;
-        border: none;
-        cursor: pointer;
-      }
-      /* 하단 아이콘 */
-      .icon-next {
-        display: fixed;
-        position: absolute;
-        bottom: 3%;
-        right: 2%;
-        width: 83px;
-        height: 89px;
-        background: url("./static/images/next_gul.jpg") no-repeat center;
-        background-size: cover;
-        border: none;
-        cursor: pointer;
-      }
+    }
+    /* 문구 애니메이션 */
+    .focus-in-expand-fwd {
+      -webkit-animation: focus-in-expand-fwd 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+              animation: focus-in-expand-fwd 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+    /* 하단 아이콘 */
+    .icon-before {
+      display: fixed;
+      position: absolute;
+      bottom: 3%;
+      left: 2%;
+      width: 85px;
+      height: 93px;
+      background: url('./static/images/before_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
+    /* 하단 아이콘 */
+    .icon-next {
+      display: fixed;
+      position: absolute;
+      bottom: 3%;
+      right: 2%;
+      width: 83px;
+      height: 89px;
+      background: url('./static/images/next_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
 
-      .we {
-        display: fixed;
-        position: absolute;
-        bottom: 1%;
-        color: #adb5bd;
-      }
+    .we{
+      display: fixed;
+      position: absolute;
+      bottom: 1%;
+      color: #adb5bd;
+    } 
 
-      /* 설명 문구 */
-      @-webkit-keyframes focus-in-expand-fwd {
-        0% {
-          letter-spacing: -0.5em;
-          -webkit-transform: translateZ(-800px);
-          transform: translateZ(-800px);
-          -webkit-filter: blur(12px);
-          filter: blur(12px);
-          opacity: 0;
-        }
-        100% {
-          -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-filter: blur(0);
-          filter: blur(0);
-          opacity: 1;
-        }
+    /* 설명 문구 */
+    @-webkit-keyframes focus-in-expand-fwd {
+      0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-800px);
+                transform: translateZ(-800px);
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
       }
-      @keyframes focus-in-expand-fwd {
-        0% {
-          letter-spacing: -0.5em;
-          -webkit-transform: translateZ(-800px);
-          transform: translateZ(-800px);
-          -webkit-filter: blur(12px);
-          filter: blur(12px);
-          opacity: 0;
-        }
-        100% {
-          -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-filter: blur(0);
-          filter: blur(0);
-          opacity: 1;
-        }
+      100% {
+        -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+        -webkit-filter: blur(0);
+                filter: blur(0);
+        opacity: 1;
       }
-    </style>
-  </head>
-  <body>
-    <p class="jeju-1 focus-in-expand-fwd">
-      제주도 여행 가실 때, 계획 짜기 막막하지 않으셨나요 ?
-    </p>
-    <p class="jeju-2 focus-in-expand-fwd">
-      원하시는 걸 알려주시면 저희가 만들어드릴게요 !
-    </p>
+    }
+    @keyframes focus-in-expand-fwd {
+      0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-800px);
+                transform: translateZ(-800px);
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+        -webkit-filter: blur(0);
+                filter: blur(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+    <p class="jeju-1 focus-in-expand-fwd">제주도 여행 가실 때, 계획 짜기 막막하지 않으셨나요 ?</p>
+    <p class="jeju-2 focus-in-expand-fwd">원하시는 걸 알려주시면 저희가 만들어드릴게요 !</p>
     <div class="icon-before"></div>
     <div class="icon-next"></div>
     <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
-  </body>
+</body>
 </html>

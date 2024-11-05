@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>도르멍 탐라</title>
-    <style>
-      /* 기본 스타일 설정 */
-      @font-face {
-        font-family: "RixXladywatermelonR";
-        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2")
-          format("woff2");
-        font-weight: normal;
-        font-style: normal;
-      }
-      /* 전체 페이지 스타일 */
-      body {
-        font-family: "RixXladywatermelonR", sans-serif; /* 글꼴 설정 */
-        display: flex;
-        justify-content: center; /* 수평 방향 중앙 정렬 */
-        align-items: center; /* 수직 중앙 정렬 */
-        flex-direction: column; /* 정렬 방향 설정 */
-        /* 여백 제거 */
-        margin: 0;
-        padding: 0;
-      }
-      /* 도르멍 탐라 */
-      h1 {
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>도르멍 탐라</title>
+  <style>
+     /* 기본 스타일 설정 */
+    @font-face {
+    font-family: 'RixXladywatermelonR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* 전체 페이지 스타일 */   
+    body {
+      font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */      
+      display: flex;
+      justify-content: center; /* 수평 방향 중앙 정렬 */ 
+      align-items: center; /* 수직 중앙 정렬 */
+      flex-direction: column;/* 정렬 방향 설정 */
+       /* 여백 제거 */
+      margin: 0; 
+      padding: 0;
+    }
+    /* 도르멍 탐라 */
+    h1 {
         position: fixed;
         font-size: 14em;
         text-align: center;
         margin-top: 80vh;
         z-index: 1;
-      }
-      /* 설명 첫번쨰줄 */
-      .jeju-1 {
+    }
+    /* 설명 첫번쨰줄 */
+    .jeju-1 {
         position: fixed;
         font-size: 2em;
         text-align: center;
         margin-top: 115vh;
         z-index: 1;
         color: gray;
-      }
-      /* 설명 두번째 줄 */
-      .jeju-2 {
+    }
+    /* 설명 두번째 줄 */
+    .jeju-2 {
         position: fixed;
         font-size: 2em;
         text-align: center;
@@ -50,180 +49,165 @@
         margin-left: 2vw;
         z-index: 1;
         color: gray;
-      }
-      /* 도르멍 탐라 애니메이션 */
-      .text-focus-in {
-        -webkit-animation: text-focus-in 1s
-          cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-        animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-      }
-      /* 시작 굴러오는 애니메이션 */
-      .roll-in-left {
-        -webkit-animation: roll-in-left 0.6s ease-out both;
-        animation: roll-in-left 0.6s ease-out both;
-      }
-      /* 시작 */
-      .icon {
-        position: fixed;
-        margin-top: 160vh;
-        width: 100px;
-        height: 107px;
-        background: url("./static/images/start.jpg") no-repeat center;
-        background-size: cover;
-        border: none;
-        cursor: pointer;
-        animation-delay: 1s;
-      }
-      /* 별 이미지 스타일 */
-      .star {
-        position: absolute;
-        animation: twinkle 2s infinite ease-in-out;
+    }
+    /* 도르멍 탐라 애니메이션 */
+    .text-focus-in {
+	  -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    }
+    /* 시작 굴러오는 애니메이션 */
+    .roll-in-left {
+      -webkit-animation: roll-in-left 0.6s ease-out both;
+              animation: roll-in-left 0.6s ease-out both;
+    }
+    /* 시작 */
+    .icon {
+      position: fixed;
+      margin-top:160vh;
+      width: 100px;
+      height: 107px;
+      background: url('./static/images/start.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+      animation-delay: 1s;
+    } 
+    /* 별 이미지 스타일 */
+    .star {
+      position: absolute;
+      animation: twinkle 2s infinite ease-in-out;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    /* 별의 위치 */
+    .star1 {
+      width: 100px; /* 별 크기 */
+      height: 100px; /* 별 크기 */
+      top: 15%; left: 20%;
+      animation-delay: 0s;
+    }
+    .star2 {
+      width: 80px; /* 별 크기 */
+      height: 80px; /* 별 크기 */
+      top: 40%; left: 75%;
+      animation-delay: 0.5s;
+    }
+    .star3 {
+
+      width: 50px; /* 별 크기 */
+      height: 50px; /* 별 크기 */
+      top: 67%; left: 37%;
+      animation-delay: 1s;
+    }    
+    .we{
+      display: fixed;
+      position: absolute;
+      bottom: 1%;
+      color: #adb5bd;
+    } 
+
+    /* 반짝이는 애니메이션 */
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+    /* 도르멍 탐라 */
+    @-webkit-keyframes text-focus-in {
+      0% {-webkit-filter: blur(12px);
+        filter: blur(12px);
         opacity: 0;
-        z-index: -1;
+    }
+      100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
       }
-
-      /* 별의 위치 */
-      .star1 {
-        width: 100px; /* 별 크기 */
-        height: 100px; /* 별 크기 */
-        top: 15%;
-        left: 20%;
-        animation-delay: 0s;
+    }
+    @keyframes text-focus-in {
+      0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
       }
-      .star2 {
-        width: 80px; /* 별 크기 */
-        height: 80px; /* 별 크기 */
-        top: 40%;
-        left: 75%;
-        animation-delay: 0.5s;
+      100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
       }
-      .star3 {
-        width: 50px; /* 별 크기 */
-        height: 50px; /* 별 크기 */
-        top: 67%;
-        left: 37%;
-        animation-delay: 1s;
+    }
+    /* 설명 문구 */
+    @-webkit-keyframes focus-in-expand-fwd {
+      0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-800px);
+                transform: translateZ(-800px);
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
       }
-      .we {
-        display: fixed;
-        position: absolute;
-        bottom: 1%;
-        color: #adb5bd;
+      100% {
+        -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+        -webkit-filter: blur(0);
+                filter: blur(0);
+        opacity: 1;
       }
-
-      /* 반짝이는 애니메이션 */
-      @keyframes twinkle {
-        0%,
-        100% {
-          opacity: 0;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.5);
-        }
+    }
+    @keyframes focus-in-expand-fwd {
+      0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-800px);
+                transform: translateZ(-800px);
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
       }
-      /* 도르멍 탐라 */
-      @-webkit-keyframes text-focus-in {
-        0% {
-          -webkit-filter: blur(12px);
-          filter: blur(12px);
-          opacity: 0;
-        }
-        100% {
-          -webkit-filter: blur(0px);
-          filter: blur(0px);
-          opacity: 1;
-        }
+      100% {
+        -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+        -webkit-filter: blur(0);
+                filter: blur(0);
+        opacity: 1;
       }
-      @keyframes text-focus-in {
-        0% {
-          -webkit-filter: blur(12px);
-          filter: blur(12px);
-          opacity: 0;
-        }
-        100% {
-          -webkit-filter: blur(0px);
-          filter: blur(0px);
-          opacity: 1;
-        }
-      }
-      /* 설명 문구 */
-      @-webkit-keyframes focus-in-expand-fwd {
-        0% {
-          letter-spacing: -0.5em;
-          -webkit-transform: translateZ(-800px);
-          transform: translateZ(-800px);
-          -webkit-filter: blur(12px);
-          filter: blur(12px);
-          opacity: 0;
-        }
-        100% {
-          -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-filter: blur(0);
-          filter: blur(0);
-          opacity: 1;
-        }
-      }
-      @keyframes focus-in-expand-fwd {
-        0% {
-          letter-spacing: -0.5em;
-          -webkit-transform: translateZ(-800px);
-          transform: translateZ(-800px);
-          -webkit-filter: blur(12px);
-          filter: blur(12px);
-          opacity: 0;
-        }
-        100% {
-          -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-          -webkit-filter: blur(0);
-          filter: blur(0);
-          opacity: 1;
-        }
-      }
-      /* 시작 */
+    }
+    /* 시작 */
       @-webkit-keyframes roll-in-left {
-        0% {
-          -webkit-transform: translateX(-800px) rotate(-540deg);
-          transform: translateX(-800px) rotate(-540deg);
-          opacity: 0;
-        }
-        100% {
-          -webkit-transform: translateX(0) rotate(0deg);
-          transform: translateX(0) rotate(0deg);
-          opacity: 1;
-        }
-      }
-      @keyframes roll-in-left {
-        0% {
-          -webkit-transform: translateX(-800px) rotate(-540deg);
-          transform: translateX(-800px) rotate(-540deg);
-          opacity: 0;
-        }
-        100% {
-          -webkit-transform: translateX(0) rotate(0deg);
-          transform: translateX(0) rotate(0deg);
-          opacity: 1;
-        }
-      }
-    </style>
-  </head>
-  <body>
+    0% {
+      -webkit-transform: translateX(-800px) rotate(-540deg);
+              transform: translateX(-800px) rotate(-540deg);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) rotate(0deg);
+              transform: translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+  }
+  @keyframes roll-in-left {
+    0% {
+      -webkit-transform: translateX(-800px) rotate(-540deg);
+              transform: translateX(-800px) rotate(-540deg);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0) rotate(0deg);
+              transform: translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+  }
+
+  </style>
+</head>
+<body>
     <h1 class="text-focus-in">도르멍 탐라</h1>
-    <p class="jeju-1 text-focus-in">
-      돌아다니며 놀다라는 뜻의 "도르멍"과 제주도의 옛 이름 "탐라"의 합성어로
-    </p>
-    <p class="jeju-2 text-focus-in">
-      제주도의 곳곳을 탐방하며 구경하고 즐기는 경험을 하자라는 의미를 담고
-      있습니다.
-    </p>
+    <p class="jeju-1 text-focus-in">돌아다니며 놀다라는 뜻의 "도르멍"과 제주도의 옛 이름 "탐라"의 합성어로 </p>
+    <p class="jeju-2 text-focus-in">제주도의 곳곳을 탐방하며 구경하고 즐기는 경험을 하자라는 의미를 담고 있습니다.</p>
     <button class="icon roll-in-left"></button>
     <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
-    <!-- 별 이미지 추가 -->
-    <img class="star star1" src="./static/images/star.jpg" alt="별" />
-    <img class="star star2" src="./static/images/star.jpg" alt="별" />
-    <img class="star star3" src="./static/images/star.jpg" alt="별" />
-  </body>
+  <!-- 별 이미지 추가 -->
+  <img class="star star1" src="./static/images/star.jpg" alt="별">
+  <img class="star star2" src="./static/images/star.jpg" alt="별">
+  <img class="star star3" src="./static/images/star.jpg" alt="별">
+</body>
 </html>
