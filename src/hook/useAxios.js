@@ -31,8 +31,7 @@ const useAxios = () => {
         async (error) => {
             const originalRequest = error.config;
 
-            // 401 오류 발생 시 Access-Token 갱신
-            if (error.response && error.response.status === 401 && !originalRequest._retry) {
+            if (error.response && !originalRequest._retry) {
                 originalRequest._retry = true;
                 try {
                     return axiosInstance(originalRequest);

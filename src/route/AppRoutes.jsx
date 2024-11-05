@@ -20,7 +20,7 @@ const AppRoutes = () => {
       <Route path={"/info"} element={<Info />} />
 
       {/* Input Page */}
-      <Route path={"/ID"} element={<ID />} />
+      <Route path={"/id"} element={<ID />} />
       <Route path={"/gender"} element={<Gender />} />
       <Route path={"/age"} element={<Age />} />
       <Route path={"/period"} element={<Period />} />
