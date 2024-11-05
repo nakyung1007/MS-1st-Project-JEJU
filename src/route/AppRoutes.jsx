@@ -10,6 +10,7 @@ import Sleep from "../page/Input/Sleep.jsx";
 import Transportation from "../page/Input/Transportation.jsx";
 import NotFound from "../page/error/NotFound.jsx";
 import Info from "../page/Main/Info.jsx";
+import Map from "../page/output/map";
 
 const AppRoutes = () => {
   return (
@@ -27,6 +28,9 @@ const AppRoutes = () => {
       <Route path={"/member"} element={<Member />} />
       <Route path={"/sleep"} element={<Sleep />} />
       <Route path={"/transportation"} element={<Transportation />} />
+
+      {/* Output Page */}
+      <Route path={"/map"} element={<Map />} />
 
       {/* Error Page */}
       <Route path={"*"} element={<NotFound />} />
