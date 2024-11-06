@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>설명</title>
   <style>
-     /* 기본 스타일 설정 */
+   /* 기본 스타일 설정 */
     @font-face {
     font-family: 'RixXladywatermelonR';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
@@ -13,72 +13,62 @@
     font-style: normal;
   }
   /* 전체 페이지 스타일 */   
-     body {
+    body {
       font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */      
       display: flex;
+      flex-direction: column;/* 정렬 방향 설정 */
       justify-content: center; /* 수평 방향 중앙 정렬 */ 
       align-items: center; /* 수직 중앙 정렬 */
-      flex-direction: column;/* 정렬 방향 설정 */
-       /* 여백 제거 */
+    /* 여백 제거 */
       margin: 0; 
       padding: 0;
-       /* 배경 이미지 설정  */
+    /* 배경 이미지 설정  */
       background-image: url('./static/images/information.jpg');
       background-size: cover; /* 배경 이미지를 화면 전체에 맞춤 */
       background-position: center; /* 이미지가 가운데 오도록 설정 */
       background-attachment: fixed; /* 스크롤 시 배경이 고정되도록 설정 */
       background-repeat: no-repeat; /* 이미지 반복 방지 */
-    }
-    .jeju-1 {
-        position: fixed;
-        font-size: 2em;
-        text-align: center;
-        margin-top: 155vh;
-        margin-left: 6vw;
-        z-index: 1;
-        color: gray;
-    }
-    .jeju-2 {
-        position: fixed;
-        font-size: 2em;
-        text-align: center;
-        margin-top: 170vh;
-        margin-left: 6vw;
-        z-index: 1;
-        color: gray;
-    }
+    }    
     /* 문구 애니메이션 */
     .focus-in-expand-fwd {
       -webkit-animation: focus-in-expand-fwd 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
               animation: focus-in-expand-fwd 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
+
+    /* Information 질문 */
+    .jeju-1 , .jeju-2 {
+        position: fixed;
+        font-size: 2em;
+        text-align: center;
+        margin-left: 6vw;
+        z-index: 1;
+        color: gray;
+    }
+
+    .jeju-1{ margin-top: 155vh; }
+
+    .jeju-2 { margin-top: 170vh; }
+
     /* 하단 아이콘 */
-    .icon-before {
-      display: fixed;
+    .icon-before , .icon-next{
       position: absolute;
-      bottom: 3%;
-      left: 2%;
-      width: 85px;
-      height: 93px;
+      bottom: 3%;      
+      border : none;
+      cursor:pointer;
+    }
+
+    .icon-before {
+      left: 2%; width: 85px; height: 93px;
       background: url('./static/images/before_gul.jpg') no-repeat center;
       background-size: cover;
-      border : none;
-      cursor:pointer;
-    } 
-    /* 하단 아이콘 */
-    .icon-next {
-      display: fixed;
-      position: absolute;
-      bottom: 3%;
-      right: 2%;
-      width: 83px;
-      height: 89px;
-      background: url('./static/images/next_gul.jpg') no-repeat center;
-      background-size: cover;
-      border : none;
-      cursor:pointer;
     } 
 
+    .icon-next {
+      right: 2%; width: 83px; height: 89px;
+      background: url('./static/images/next_gul.jpg') no-repeat center;
+      background-size: cover;
+    } 
+    /* 저작권 표시 */
     .we{
       display: fixed;
       position: absolute;
@@ -86,6 +76,282 @@
       color: #adb5bd;
     } 
 
+    /* ---------- 모달 배경 ---------- */
+    .modal {
+        display: none; /* 기본적으로 숨김 */
+        position: fixed; /* 화면에 고정 */
+        z-index: 1; /* 가장 위에 표시 */
+        left: 0;
+        top: 0;
+        width: 100%; /* 전체 너비 */
+        height: 100%; /* 전체 높이 */
+        background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+      }
+
+
+    /* -------Yes or No --------------*/
+    .modal-content-0 {
+        background-color: #fff;
+        margin: 20% auto; /* 화면 중앙에 위치 */
+        padding: 4vh;
+        width: 40%; /* 너비 설정 */
+        height: 25%;     
+        border: 4px solid #7ed957;
+        border-radius: 5vh;
+      }
+    /* ---------- New-1 Old-2 ---------- */
+    .modal-content-1-1, .modal-content-1-2 {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 4vh;
+      width: 40%;
+      height: 55%;
+      border: 4px solid #7ed957;
+      border-radius: 5vh;
+  }  
+    
+    /*------------ Yes or No 배경 귤--------------*/
+    .gul{
+      position: absolute;
+      top: 40%;
+      left: 31%;
+      width: 80px;
+      height: 85px;
+      background: url('./static/images/item/gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      z-index: 0;
+    }
+    /*------------ Login 배경 귤---------------*/
+    .gul_1{
+      position: absolute;
+      top: 22%;
+      left: 31%;
+      width: 80px;
+      height: 85px;
+      background: url('./static/images/item/gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      z-index: 0;
+    }
+    .gul_2{
+      position: absolute;
+      top: 50.5%;
+      left: 31%;
+      width: 80px;
+      height: 85px;
+      background: url('./static/images/item/gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      z-index: 0;
+    } 
+    /*------Yes or No 질문 대답-------- */
+    .use-section {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+    .use-title {
+      text-align: center;
+      font-size: 3em;
+    }
+    .use-button {
+      font-family: 'RixXladywatermelonR', sans-serif;
+      font-size: 2em;
+      color: black;
+      background-color: #7ed957;
+      border: none;
+      border-radius: 25vh;
+      cursor: pointer;
+      padding: 0.5em 2em;
+      outline: none;
+      margin: 0 8%;
+      margin-top: 0.5em;
+    }
+    
+
+    /* 로그인 아이콘 */
+    .login {
+      position: absolute;
+      bottom: 22%;
+      right: 30%;
+      width: 80px;
+      height: 85px;
+      background: url('./static/images/login.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    }
+
+    /* Placeholder 스타일 */
+    ::placeholder {
+      font-family: 'RixXladywatermelonR', sans-serif;
+      color: #999; /* placeholder 텍스트 색상 */
+      font-size: 0.8em;
+        }
+      
+
+
+    /* 닉네임 영역 스타일 */
+    .nickname-section-1 , .nickname-section-2 {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+    .nickname-title-1 , .nickname-title-2 {
+      text-align: center;
+      font-size: 3em;
+    }
+    .nickname-input-1 , .nickname-input-2 {
+      font-family: 'RixXladywatermelonR', sans-serif;
+      font-size: 2em;
+      text-align: center;
+      border: 4px solid #7ed957;
+      border-radius: 25vh;
+      outline: none;
+    }
+    .nickname-input-1{
+      padding: 1vh 4vw;
+      margin-left: 4vw;
+    }
+    .nickname-input-2 {
+      padding: 1vh 5vw;
+    }
+    /* 확인 버튼 */
+    .check-button {
+      font-family: 'RixXladywatermelonR', sans-serif;
+      font-size: 1.5em;
+      color: #ffffff;
+      background-color: #7ed957;
+      border: none;
+      border-radius: 25vh;
+      cursor: pointer;
+      padding: 1em;
+      outline: none;
+      margin-left: 2vw;
+    }
+    /* 중복성체크 -- 신규 이용자 */
+    .nickname-message {
+      font-size: 1.5em;
+      color: #ffffff;
+      margin-top: 2em;
+      min-height: 2em; /* 고정된 높이로 공간 확보 */
+    }
+
+    /* 중복성체크 -- 이전 이용자 -- 공간 확보용 */
+    .nickname-height{
+      margin-top: 3em;
+      min-height: 3em; /* 고정된 높이로 공간 확보 */
+    }
+
+  /* 비밀번호 영역 스타일 */
+    .password-section-1 ,.password-section-2 {
+      position: relative;
+      text-align: center;
+      margin-top: -1em;
+      z-index: 1;
+    }
+    .password-title-1 , .password-title-2{
+      font-size: 3em;
+    }
+    .password-input-1 , .password-input-2 {
+      font-size: 2em;
+      text-align: center;
+      color: black;
+      border: 4px solid #7ed957;
+      padding: 1vh 5vw;
+      border-radius: 25vh;
+      outline: none;
+    }  
+  /* ---------- Modal 제주 여행 기록  ---------- */
+    .gul_3{
+      position: absolute;
+      top: 22%;
+      left: 34.5%;
+      width: 80px;
+      height: 85px;
+      background: url('./static/images/item/gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      z-index: 0;
+    }
+    /* 모달 내용 스타일 */
+    .modal-content-2 {
+        font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */   
+        background-color: #fff;
+        margin: 10% auto; /* 화면 중앙에 위치 */
+        padding: 4vh;
+        width: 30%; /* 너비 설정 */
+        height: 50%;     
+        border: 4px solid #7ed957;
+        border-radius: 5vh;
+    }
+    .modal-title-2{
+      position: fixed;
+      margin-left: 0.8em;
+      margin-top: 0.8em;
+      font-size: 3em;
+      z-index: 1;
+    }
+    .new{
+        font-family: 'RixXladywatermelonR', sans-serif;
+        position: fixed;
+        font-size: 2em;
+        margin-left: 0.5em;
+        background-color: #7ed957;
+        color: black;
+        border: none;
+        border-radius: 25vh;
+        cursor: pointer;
+        text-align: center;
+        padding:  1.5vh 7vw;
+        outline: none;
+        margin-top: 4.5em;
+        cursor: pointer;
+    }
+    .new:hover{
+        background-color: #feac36;
+    }
+
+    .log-container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 15em;
+    }
+    .log-row{
+        display: flex;
+        gap:4.5vh; 
+        justify-content: center;
+    }
+    .log{
+        font-family: 'RixXladywatermelonR', sans-serif;
+        font-size: 2em;
+        text-align: center;
+        color: black;
+        background-color: white;
+        border: 4px solid #7ed957;
+        padding: 1vh 3vw;
+        border-radius: 25vh;
+        margin-top: 0.7em;
+        outline: none;
+    }
+    .log:hover{
+        border : 4px solid #feac36;
+    }
+    /* 닫기 버튼 스타일 */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
     /* 설명 문구 */
     @-webkit-keyframes focus-in-expand-fwd {
       0% {
@@ -127,7 +393,172 @@
     <p class="jeju-1 focus-in-expand-fwd">제주도 여행 가실 때, 계획 짜기 막막하지 않으셨나요 ?</p>
     <p class="jeju-2 focus-in-expand-fwd">원하시는 걸 알려주시면 저희가 만들어드릴게요 !</p>
     <div class="icon-before"></div>
-    <div class="icon-next"></div>
+    <button class="icon-next" id="openModalBtn"></button>
+    
+    <!-- 로그인 유무 -->
+    <div id="firstmodal" class="modal">
+      <div class="modal-content-0">
+          <span class="close" id="closeFirstmodal">&times;</span>
+          <img class="gul" src="./static/images/item/gul.jpg">
+          <!-- 닉네임 입력 영역 -->
+        <div class="use-section">
+          <p class="use-title">도르멍 탐라를 이용해보신적이 있나요 ?</p>
+          <button class="use-button" id="goToOldModalBtn">&nbsp;&nbsp;&nbsp;&nbsp;예&nbsp;&nbsp;&nbsp;&nbsp;</button>
+          <button class="use-button" id="goToNewModalBtn">아니요</button>
+        </div>
+      </div>
+    </div>   
+    
+    <!-- 처음 이용하는 사용자 -->
+    <div id="newModal" class="modal">
+        <div class="modal-content-1-1">
+            <span class="close" id="closeNewModal">&times;</span>
+            <img class="gul_1" src="./static/images/item/gul.jpg">
+            <img class="gul_2" src="./static/images/item/gul.jpg">
+           
+            <!-- 닉네임 입력 영역 -->
+          <div class="nickname-section-1">
+            <p class="nickname-title-1">사용하실 닉네임을 입력해주시겠어요?</p>
+              <input id="nickname" class="nickname-input-1" placeholder="자신을 표현할 문자를 입력해주세요.">
+              <button class="check-button" onclick="checkNickname()">확인</button>
+            <p id="nickname-message" class="nickname-message"></p>
+          </div>
+
+          <!-- 비밀번호 입력 영역 -->
+          <div class="password-section-1">
+          <p class="password-title-1">사용하실 핀번호를 입력해주시겠어요?</p>
+              <input id="password" type="password" class="password-input-1" maxlength="6" placeholder="여섯 자리의 숫자를 입력해주세요.">
+              </div>
+            <button id="goToSecondModalBtn" class="login"></button>
+        </div>
+    </div>
+
+    <!-- 이미 있는 사용자 -->
+    <div id="oldModal" class="modal">
+        <div class="modal-content-1-2">
+            <span class="close" id="closeOldModal">&times;</span>
+            <img class="gul_1" src="./static/images/item/gul.jpg">
+            <img class="gul_2" src="./static/images/item/gul.jpg">
+           
+            <!-- 닉네임 입력 영역 -->
+          <div class="nickname-section-2">
+            <p class="nickname-title-2">사용하신 닉네임을 입력해주시겠어요?</p>
+              <input id="nickname" class="nickname-input-2" placeholder="자신을 표현할 문자를 입력해주세요.">
+           
+              <p class="nickname-height"></p>
+          </div>
+
+          <!-- 비밀번호 입력 영역 -->
+          <div class="password-section-2">
+          <p class="password-title-2">사용하신 핀번호를 입력해주시겠어요?</p>
+              <input id="password" type="password" class="password-input-2" maxlength="6" placeholder="여섯 자리의 숫자를 입력해주세요.">
+              </div>
+            <button class="login"></button>
+        </div>
+    </div>
+
+    <!-- 여행 기록 모달 -->
+    <div id="secondModal" class="modal">
+      <div class="modal-content-2">
+        <img class="gul_3" src="./static/images/item/gul.jpg">
+        <p class="modal-title-2">제주, 여행 기록을 불러올까요 ?</p>
+      <button id="goToGenderBtn" class="new">새로운 여행 기록 만들기</button> 
+      <div class="log-container">
+          <div class="log-row">
+              <button class="log">&nbsp;&nbsp;첫번째&nbsp;&nbsp;</button>
+              <button class="log">&nbsp;&nbsp;두번째&nbsp;&nbsp;</button>
+          </div>
+          <div class="log-row">
+              <button class="log">&nbsp;&nbsp;세번째&nbsp;&nbsp;</button>
+              <button class="log">&nbsp;&nbsp;네번째&nbsp;&nbsp;</button>
+          </div>
+          <div class="log-row">
+              <button class="log">다섯번째</button>
+              <button class="log">여섯번째</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      
     <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
+
+    <script>// 모달과 버튼 가져오기
+      const existingNicknames = ['nickname1', 'nickname2', 'nickname3'];
+
+      function checkNickname() {
+        const nickname = document.getElementById('nickname').value.trim();
+        const message = document.getElementById('nickname-message');
+
+        if (existingNicknames.includes(nickname)) {
+          message.textContent = '이미 사용 중인 이름입니다.';
+          message.style.color = 'gray';
+        } else if (nickname) {
+          message.textContent = '사용 가능한 이름입니다.';
+          message.style.color = 'black';
+        } else {
+          message.textContent = '';
+        }
+      }
+
+      const firstModal = document.getElementById("firstmodal");
+      const newModal = document.getElementById("newModal");
+      const oldModal = document.getElementById("oldModal");
+      const secondModal = document.getElementById("secondModal");
+
+      const openModalBtn = document.getElementById("openModalBtn");
+      const closeFirstModal = document.getElementById("closeFirstmodal");
+      const goToOldModalBtn = document.getElementById("goToOldModalBtn");
+      const goToNewModalBtn = document.getElementById("goToNewModalBtn");
+      const closeNewModal = document.getElementById("closeNewModal");
+      const closeOldModal = document.getElementById("closeOldModal");
+      const goToSecondModalBtn = document.getElementById("goToSecondModalBtn");
+      const goToNextPageBtn = document.getElementById("goToNextPageBtn"); 
+      const goToGenderBtn = document.getElementById("goToGenderBtn");
+      
+    // 로그인 유무 모달 열기
+      openModalBtn.onclick = function() {
+        firstModal.style.display = "block";
+      }
+
+      // 로그인 유무 모달 닫기
+      closeFirstModal.onclick = function() {
+        firstModal.style.display = "none";
+      }
+
+      // 이전 사용자 모달 열기 (예 선택 시)
+      goToOldModalBtn.onclick = function() {
+        firstModal.style.display = "none";
+        oldModal.style.display = "block"; // 이전 모달 열기
+      }
+      closeOldModal.onclick = function() {
+        oldModal.style.display = "none";
+      }
+      // 새로운 사용자 모달 열기 (아니요 선택 시)
+      goToNewModalBtn.onclick = function() {
+        firstModal.style.display = "none";
+        newModal.style.display = "block"; // 새 모달 열기
+      }      
+      closeNewModal.onclick = function() {
+        newModal.style.display = "none";
+      }
+
+      // 이전 사용자 모달에서 기록 모달 이동
+      goToSecondModalBtn.onclick = function() {
+        oldModal.style.display = "none";
+        secondModal.style.display = "block"; // 두 번째 모달 열기
+        }
+  
+      // 새로운 기록 만들기 버튼 누르면 성별 페이지로 !
+      goToGenderBtn.onclick = function() {
+          secondModal.style.display = "none";
+
+      }
+
+      // 기록 모달에서 새 페이지로 이동
+      goToNextPageBtn.onclick = function() {
+        secondModal.style.display = "none";
+      }
+      </script>
 </body>
+
 </html>

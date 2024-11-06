@@ -5,28 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>구성원</title>
   <style>
-    /* 기본 스타일 설정 */
+    /* 기존 스타일 */
+
     @font-face {
-    font-family: 'RixXladywatermelonR';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  }
+      font-family: 'RixXladywatermelonR';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
     body {
-      font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */      
+      font-family: 'RixXladywatermelonR', sans-serif;
       display: flex;
-      justify-content: center; /* 수평 방향 중앙 정렬 */ 
-      align-items: center; /* 수직 중앙 정렬 */
-      flex-direction: column;/* 정렬 방향 설정 */
-       /* 여백 제거 */
-      margin: 0; 
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
       padding: 0;
-       /* 배경 이미지 설정  */
-      background-image: url('./static/images/top_main.jpg');
-      background-size: cover; /* 배경 이미지를 화면 전체에 맞춤 */
-      background-position: center; /* 이미지가 가운데 오도록 설정 */
-      background-attachment: fixed; /* 스크롤 시 배경이 고정되도록 설정 */
-      background-repeat: no-repeat; /* 이미지 반복 방지 */
+      background-image: url('./static/images/top_main.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
     .mung {
       display: fixed;
@@ -37,53 +36,39 @@
       height: 89px;
       background: url('./static/images/mung.jpg') no-repeat center;
       background-size: cover;
-      border : none;
-      cursor:pointer;
+      border: none;
+      cursor: pointer;
+      z-index: -1;
+    }     
+    .mung-1 {
+      display: fixed;
+      position: absolute;
+      top: 63vh;
+      right: 26vw;
+      width: 110px;
+      height: 89px;
+      background: url('./static/images/mung.jpg') no-repeat center;
+      background-size: cover;
+      border: none;
+      cursor: pointer;
       z-index: -1;
     } 
     .text-focus-in {
-    	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
+      -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+      animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
     }
-    /* 질문 */
     .text {
-      /* 문구 고정 */
       display: fixed;
-      /* 중앙 정렬 */
       justify-content: center;
       font-size: 4.5em;
-      margin-top : 17vh;
+      margin-top: 17vh;
     }
-    /* flex 버튼 컨테이너 */
-    .button-container {
-      display: flex;
-      flex-direction: column; /* 버튼 행을 수직으로 배치 */
-  }
-    .button-row {
-      display: flex;
-        gap: 12vh; /* 버튼 사이 간격 */
-        justify-content: center;
-        margin-bottom:9vh;
-    }    
-
-    .button {
+    .text-1 {
       display: fixed;
-      font-family: 'RixXladywatermelonR',sans-serif;
-      background-color: #7ed957; /* 버튼 색상 */
-      color: black;
-      border: none;
-      border-radius: 5vh;
-      font-size: 2em;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      padding : 2vh 4vw;
-      margin-top: 4vh;
+      justify-content: center;
+      font-size: 4.5em;
+      margin-top: 13.2vh;
     }
-
-    .button:hover {
-      background-color: #feac36; /* 버튼 호버 색상 */
-    }
-    /* 하단 아이콘 */
     .icon-before {
       display: fixed;
       position: absolute;
@@ -93,10 +78,9 @@
       height: 93px;
       background: url('./static/images/before_gul.jpg') no-repeat center;
       background-size: cover;
-      border : none;
-      cursor:pointer;
+      border: none;
+      cursor: pointer;
     } 
-    /* 하단 아이콘 */
     .icon-next {
       display: fixed;
       position: absolute;
@@ -106,15 +90,74 @@
       height: 89px;
       background: url('./static/images/next_gul.jpg') no-repeat center;
       background-size: cover;
-      border : none;
-      cursor:pointer;
+      border: none;
+      cursor: pointer;
     } 
-    .we{
+    .we {
       display: fixed;
       position: absolute;
       bottom: 1%;
       color: #adb5bd;
-    }    
+    }   
+    
+        /* 공통 스타일 */
+    .custom-dropdown {
+      position: relative;
+      display: inline-block;
+      margin-top: 3vh;
+    }
+
+    .custom-dropdown button {
+      font-family: 'RixXladywatermelonR', sans-serif;
+      background-color: white;
+      border: 4px solid #7ed957;
+      color: black;
+      border-radius: 5vh;
+      font-size: 2em;
+      cursor: pointer;
+      padding: 3vh 14vw;
+      text-align: center;
+      width: 100%;
+    }
+
+    .custom-dropdown button:hover {
+      background-color: #7ed957;
+    }
+
+    /* 드롭다운 메뉴 스타일 */
+    .custom-dropdown-content {
+      display: none;
+      position: absolute;
+      width: 95%;
+      min-width: 100px;
+      max-height: 65px;
+      background-color : transparent; 
+      /* box-shadow: 0px 8px 16px rgba(0,0,0,0.2); */
+      overflow-y: auto;
+      list-style-type: none;
+      padding: 0;
+      z-index: 1;
+    }
+
+    /* 옵션 항목 스타일 */
+    .custom-dropdown-content li {
+      font-family: 'RixXladywatermelonR', sans-serif;
+      color: black;
+      padding: 0.1vh 0.2vw;
+      font-size: 1.5em; /* 원하는 글자 크기 */
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .custom-dropdown-content li:hover {
+      background-color: #7ed957;
+    }
+
+    /* 드롭다운 표시 상태 */
+    .custom-dropdown-content.show {
+      display: block;
+    }
+
     @-webkit-keyframes text-focus-in {
       0% {
         -webkit-filter: blur(12px);
@@ -139,27 +182,87 @@
         opacity: 1;
       }
     }
+
+
   </style>
+  
+   
 </head>
 <body>
-    <p class="text text-focus-in">제주, 누구와 함께 떠나시나요 ?</p>
-    <div class="mung"></div>
-    <div class="button-container">
-        <div class="button-row">
-            <button class="button">나혼자 씩씩하게</button>
-            <button class="button">친구와 사이좋게</button>
-          </div>
-          <div class="button-row">
-            <button class="button">부모님과 즐겁게</button>
-            <button class="button">아이와 손을잡고</button>
-          </div>
-          <div class="button-row">
-            <button class="button">연인과 다정하게</button>
-            <button class="button">반려동물과 함께</button>
-          </div>
-        </div>
-        <div class="icon-before"></div>
-        <div class="icon-next"></div>
+  <p class="text text-focus-in">제주, 누구와 함께 떠나시나요 ?</p>
+  <div class="mung"></div>
+  <div class="custom-dropdown">
+    <button id="member-button">선택해주세요 !</button>
+    <ul class="custom-dropdown-content" id="member-dropdown">
+      <li onclick="selectMemberOption('혼자')">혼자</li>
+      <li onclick="selectMemberOption('친구')">친구</li>
+      <li onclick="selectMemberOption('부모님')">부모님</li>
+      <li onclick="selectMemberOption('배우자')">배우자</li>
+      <li onclick="selectMemberOption('남자친구')">남자친구</li>
+      <li onclick="selectMemberOption('여자친구')">여자친구</li>
+      <li onclick="selectMemberOption('아이')">아이</li>
+      <li onclick="selectMemberOption('친척')">친척</li>
+      <li onclick="selectMemberOption('형제')">형제</li>
+      <li onclick="selectMemberOption('자매')">자매</li>
+      <li onclick="selectMemberOption('조부모님')">조부모님</li>
+      <li onclick="selectMemberOption('동료')">동료</li>
+      <li onclick="selectMemberOption('모임')">모임</li>
+      <li onclick="selectMemberOption('단체')">단체</li>
+    </ul>
+  </div>
+  <p class="text-1 text-focus-in">제주,더 자세하게 알려주세요 !</p>
+  <div class="mung-1"></div>
+  <div class="custom-dropdown">
+    <button id="status-button">선택해주세요 !</button>
+    <ul class="custom-dropdown-content" id="status-dropdown">
+      <li onclick="selectStatusOption('나홀로 여행')">나홀로 여행</li>
+      <li onclick="selectStatusOption('2인 가족 여행')">둘이서 가족 여행</li>
+      <li onclick="selectStatusOption('3인 이상 가족 여행(친척 포함)')">여러명의 가족과 여행</li>
+      <li onclick="selectStatusOption('부모 동반 여행')">부모 동반 여행</li>
+      <li onclick="selectStatusOption('자녀 동반 여행')">자녀 동반 여행</li>
+      <li onclick="selectStatusOption('2인 여행(가족 외)')">가족이 아닌 사람과 둘이서 여행</li>
+      <li onclick="selectStatusOption('3인 이상 여행(가족 외)')">가족이 아닌 여러명과 여행</li>
+      <li onclick="selectStatusOption('3대 동반 여행(친척 포함)')">3대 동반 여행</li>
+    </ul>
+  </div>
+  <div class="icon-before"></div>
+  <div class="icon-next"></div>
   <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
+  <script>
+        // 버튼 클릭 시 드롭다운 토글
+    document.getElementById("member-button").onclick = function() {
+      document.getElementById("member-dropdown").classList.toggle("show");
+    };
+
+    document.getElementById("status-button").onclick = function() {
+      document.getElementById("status-dropdown").classList.toggle("show");
+    };
+
+    // 옵션 선택 시 버튼 텍스트 업데이트
+    function selectMemberOption(value) {
+      document.getElementById("member-button").textContent = value;
+      document.getElementById("member-dropdown").classList.remove("show");
+    }
+
+    function selectStatusOption(value) {
+      document.getElementById("status-button").textContent = value;
+      document.getElementById("status-dropdown").classList.remove("show");
+    }
+
+    /* 드롭다운 닫기 위한 클릭 이벤트 */
+window.onclick = function(event) {
+  if (!event.target.matches('.custom-dropdown button')) {
+    var dropdowns = document.getElementsByClassName("custom-dropdown-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+  </script>  
 </body>
+
 </html>

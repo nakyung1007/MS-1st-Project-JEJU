@@ -11,7 +11,7 @@ document.addEventListener("click", function (event) {
     timestamp: new Date().toISOString(),
   };
 
-  console.log("User clicked on element:", logData);
+  // console.log("User clicked on element:", logData);
 
   // 서버로 클릭 정보를 전송
   fetch("http://localhost:3000/log", {
