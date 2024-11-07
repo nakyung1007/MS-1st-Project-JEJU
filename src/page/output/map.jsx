@@ -80,7 +80,7 @@ const Map = () => {
       address: "제주특별자치도 서귀포시 안덕면 신화역사로 15",
       latitude: 33.3059133,
       longitude: 126.2894893,
-      imageurl: "/images/photo/오설록 티 뮤지엄.png",
+      imageurl: "/images/photo/오설록 티 뮤지엄.jpg",
     },
     {
       id: 7,
@@ -89,7 +89,7 @@ const Map = () => {
       address: "제주특별자치도 제주시 구좌읍 비자숲길 55",
       latitude: 33.4904084,
       longitude: 126.8099875,
-      imageurl: "/images/photo/bejalim.png",
+      imageurl: "/images/photo/비자림.jpg",
     },
     {
       id: 8,
@@ -98,7 +98,7 @@ const Map = () => {
       address: "제주특별자치도 제주시 애월읍 어림비로 478",
       latitude: 33.3967005,
       longitude: 126.3450106,
-      imageurl: "/images/photo/아르떼뮤지엄.png",
+      imageurl: "/images/photo/아르떼뮤지엄.jpg",
     },
     {
       id: 9,
@@ -107,7 +107,7 @@ const Map = () => {
       address: "제주특별자치도 제주시 구좌읍 금백조로 916",
       latitude: 33.4433592,
       longitude: 126.7796675,
-      imageurl: "/images/스누피 가든.png",
+      imageurl: "/images/스누피 가든.jpg",
     },
     {
       id: 10,
