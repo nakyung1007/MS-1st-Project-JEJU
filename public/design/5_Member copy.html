@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구성원</title>
+    <style>
+      /* 기존 스타일 */
+
+      @font-face {
+        font-family: "RixXladywatermelonR";
+        src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2")
+          format("woff2");
+        font-weight: normal;
+        font-style: normal;
+      }
+      body {
+        font-family: "RixXladywatermelonR", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        background-image: url("./static/images/top_main.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+      .mung {
+        display: fixed;
+        position: absolute;
+        top: 22vh;
+        right: 26vw;
+        width: 110px;
+        height: 89px;
+        background: url("./static/images/mung.jpg") no-repeat center;
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+        z-index: -1;
+      }
+      .mung-1 {
+        display: fixed;
+        position: absolute;
+        top: 60vh;
+        right: 26vw;
+        width: 110px;
+        height: 89px;
+        background: url("./static/images/mung.jpg") no-repeat center;
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+        z-index: -1;
+      }
+      .text-focus-in {
+        -webkit-animation: text-focus-in 1s
+          cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+        animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+      }
+      .text {
+        display: fixed;
+        justify-content: center;
+        font-size: 4.5em;
+        margin-top: 17vh;
+      }
+      .text-1 {
+        display: fixed;
+        justify-content: center;
+        font-size: 4.5em;
+        margin-top: 10vh;
+      }
+      .icon-before {
+        display: fixed;
+        position: absolute;
+        bottom: 3%;
+        left: 2%;
+        width: 85px;
+        height: 93px;
+        background: url("./static/images/before_gul.jpg") no-repeat center;
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+      }
+      .icon-next {
+        display: fixed;
+        position: absolute;
+        bottom: 3%;
+        right: 2%;
+        width: 83px;
+        height: 89px;
+        background: url("./static/images/next_gul.jpg") no-repeat center;
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+      }
+      .we {
+        display: fixed;
+        position: absolute;
+        bottom: 1%;
+        color: #adb5bd;
+      }
+
+      /* select 요소를 버튼 스타일로 */
+      #member {
+        font-family: "RixXladywatermelonR", sans-serif;
+        background-color: #7ed957;
+        color: black;
+        border: none;
+        border-radius: 5vh;
+        font-size: 2em;
+        cursor: pointer;
+        padding: 3vh 10vw;
+        margin-top: 4vh;
+        appearance: none; /* 기본 드롭다운 화살표 숨기기 */
+        text-align: center;
+      }
+
+      /* select 요소에 마우스를 올렸을 때 색상 변경 */
+      #member:hover {
+        background-color: #feac36;
+      } /* select 요소를 버튼 스타일로 */
+
+      /* 옵션 항목 스타일 */
+      #member option {
+        font-family: "RixXladywatermelonR", sans-serif;
+        background-color: white;
+        color: black;
+        padding: 3vh 5vw;
+        font-size: 0.2em;
+      }
+      #status {
+        font-family: "RixXladywatermelonR", sans-serif;
+        background-color: #7ed957;
+        color: black;
+        border: none;
+        border-radius: 5vh;
+        font-size: 2em;
+        cursor: pointer;
+        padding: 3vh 8vw;
+        margin-top: 2vh;
+        appearance: none; /* 기본 드롭다운 화살표 숨기기 */
+        text-align: center;
+      }
+
+      /* select 요소에 마우스를 올렸을 때 색상 변경 */
+      #status:hover {
+        background-color: #feac36;
+      }
+
+      /* 옵션 항목 스타일 */
+      #status option {
+        font-family: "RixXladywatermelonR", sans-serif;
+        background-color: white;
+        color: black;
+        padding: 3vh 5vw;
+      }
+
+      @-webkit-keyframes text-focus-in {
+        0% {
+          -webkit-filter: blur(12px);
+          filter: blur(12px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-filter: blur(0px);
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+      @keyframes text-focus-in {
+        0% {
+          -webkit-filter: blur(12px);
+          filter: blur(12px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-filter: blur(0px);
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="text text-focus-in">제주, 누구와 함께 떠나시나요 ?</p>
+    <div class="mung"></div>
+    <select id="member">
+      <option value="부모님">부모님과 함께</option>
+      <option value="배우자">배우자와 함께</option>
+      <option value="연인">남자친구와 함께</option>
+      <option value="연인">여자친구와 함께</option>
+      <option value="자녀">아이와 함께</option>
+      <option value="조부모">조부모님과 함께</option>
+      <option value="친구">친구와 함께</option>
+      <option value="친인척">친척과 함께</option>
+      <option value="형제/자매">형제와 함께</option>
+      <option value="형제/자매">자매와 함께</option>
+      <option value="동료">동료와 함께</option>
+      <option value="모임/단체">모임에서 다같이</option>
+      <option value="모임/단체">단체에서 다같이</option>
+      <option value="기타">나혼자 씩씩하게</option>
+    </select>
+    <p class="text-1 text-focus-in">제주,더 자세하게 알려주세요 !</p>
+    <div class="mung-1"></div>
+    <select id="status">
+      <option value="2인 여행(가족 외)">2인 여행(가족 외)</option>
+      <option value="자녀 동반 여행">자녀 동반 여행</option>
+      <option value="2인 가족 여행">2인 가족 여행</option>
+      <option value="나홀로 여행">나홀로 여행</option>
+      <option value="3인 이상 여행(가족 외)">3인 이상 여행(가족 외)</option>
+      <option value="3대 동반 여행(친척 포함)">3대 동반 여행(친척 포함)</option>
+      <option value="부모 동반 여행">부모 동반 여행</option>
+      <option value="3인 이상 가족 여행(친척 포함)">
+        3인 이상 가족 여행(친척 포함)
+      </option>
+    </select>
+    <div class="icon-before"></div>
+    <div class="icon-next"></div>
+    <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
+  </body>
+</html>
