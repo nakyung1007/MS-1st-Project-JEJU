@@ -1,9 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import MainTitle from "../../component/text/MainTitle.jsx";
 import SubTitle from "../../component/text/SubTitle.jsx";
 import StartButton from "../../component/button/StartButton.jsx";
 import Star from "../../component/object/Star.jsx";
+import {useEffect} from "react";
+import {useData} from "../../context/DataContext.jsx";
 
 const Main = () => {
+    const {setUserData} = useData();
+
+    useEffect(() => {
+        setUserData({});
+    }, []);
+
     return (
         <div className={"h-screen w-full bg-cover bg-center relative"}>
             <div className={"flex items-center justify-center h-screen"}>

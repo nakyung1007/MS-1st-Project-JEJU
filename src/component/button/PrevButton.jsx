@@ -1,9 +1,22 @@
 /* eslint-disable react/prop-types */
 
 import {useNavigate} from "react-router-dom";
+import {useData} from "../../context/DataContext.jsx";
 
-const PrevButton = ({url}) => {
+const PrevButton = ({url, isInitial}) => {
+    const {setUserData} = useData();
     const nav = useNavigate();
+
+    const onClickPrev = () => {
+        if (isInitial) {
+            if (confirm('입력한 정보들이 초기화됩니다.\n이전 화면으로 이동하시겠습니까?')) {
+                setUserData({});
+                nav(url);
+            }
+        } else {
+            nav(url);
+        }
+    };
 
     return (
         <div className={"fixed left-4 bottom-3"}>
@@ -20,7 +33,7 @@ const PrevButton = ({url}) => {
                 style={{
                     backgroundImage: "url('/public/images/before_gul.jpg')"
                 }}
-                onClick={() => nav(url)}
+                onClick={onClickPrev}
             />
         </div>
     );

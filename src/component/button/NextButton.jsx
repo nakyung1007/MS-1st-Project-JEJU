@@ -2,8 +2,16 @@
 
 import {useNavigate} from "react-router-dom";
 
-const NextButton = ({url}) => {
+const NextButton = ({url, isAnswered}) => {
     const nav = useNavigate();
+
+    const onClickNext = () => {
+        if (isAnswered) {
+            nav(url);
+        } else {
+            alert('올바르지 않은 입력 정보입니다.');
+        }
+    };
 
     return (
         <div className={"fixed right-4 bottom-3"}>
@@ -20,7 +28,7 @@ const NextButton = ({url}) => {
                 style={{
                     backgroundImage: "url('/public/images/next_gul.jpg')"
                 }}
-                onClick={() => nav(url)}
+                onClick={onClickNext}
             />
         </div>
     );

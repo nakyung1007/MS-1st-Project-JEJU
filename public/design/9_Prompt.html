@@ -21,7 +21,7 @@
       flex-direction: column;/* 정렬 방향 설정 */
       margin: 0; 
       padding: 0;
-      background-image: url('static/images/image.jpg');
+      background-image: url('./static/images/image.jpg');
       background-size: cover; 
       background-position: center;
       background-attachment: fixed; 
@@ -42,13 +42,14 @@
     .click {
       font-family: 'RixXladywatermelonR',sans-serif;
       background-color: white;
-      padding: 2vh 15vw;
+      padding: 2vh 17vw;
       color: black;
       border: 4px solid #7ed957;
       font-size: 2em;
       cursor: pointer;
       border-radius: 12vh; 
       position: relative;
+      margin-top: 53vh;
     }
     .click:hover {
       background-color: #7ed957;
@@ -71,8 +72,8 @@
       padding: 0;
       background-color : transparent; 
       z-index: 1;
-      left: 8vw;
-      top :12vh;
+      left: 40vw;
+      top :30vh;
     }
 
     .dropdown-content li {
@@ -96,7 +97,7 @@
       left: 2%;
       width: 85px;
       height: 93px;
-      background: url('static/images/before_gul.jpg') no-repeat center;
+      background: url('./static/images/before_gul.jpg') no-repeat center;
       background-size: cover;
       border: none;
       cursor: pointer;
@@ -108,12 +109,35 @@
       right: 2%;
       width: 83px;
       height: 89px;
-      background: url('static/images/next_gul.jpg') no-repeat center;
+      background: url('./static/images/next_gul.jpg') no-repeat center;
       background-size: cover;
       border: none;
       cursor: pointer;
     }
-
+    /* 하단 아이콘 */
+    .icon-before {
+      position: absolute;
+      bottom: 3%;
+      left: 2%;
+      width: 85px;
+      height: 93px;
+      background: url('./static/images/before_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
+    /* 하단 아이콘 */
+    .icon-next {
+      position: absolute;
+      bottom: 3%;
+      right: 2%;
+      width: 83px;
+      height: 89px;
+      background: url('./static/images/next_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
     .we {
       position: absolute;
       bottom: 1%;
@@ -134,7 +158,7 @@
   </style>
 </head>
 <body>
-  <p class="text text-focus-in">제주, 여행 키워드를 선택해주세요.</p>
+  <p class="text text-focus-in">제주, 이번 여행의 키워드를 선택해주세요.</p>
   <div class="dropdown">
     <button class="click" onclick="toggleDropdown()">눌러주세요 !</button>
     <ul id="dropdownMenu" class="dropdown-content">
@@ -143,97 +167,83 @@
       <li onclick="selectOption('갤러리')">갤러리</li>
       <li onclick="selectOption('건강')">건강</li>
       <li onclick="selectOption('교육')">교육</li>
-
       <li onclick="selectOption('기념품')">기념품</li>
       <li onclick="selectOption('기타')">기타</li>
       <li onclick="selectOption('꽃명소')">꽃명소</li>
       <li onclick="selectOption('끝자리')">끝자리</li>
       <li onclick="selectOption('낚시체험')">낚시체험</li>
-
       <li onclick="selectOption('녹차')">녹차</li>
       <li onclick="selectOption('농장체험')">농장체험</li>
       <li onclick="selectOption('대형')">대형</li>
       <li onclick="selectOption('등반')">등반</li>
       <li onclick="selectOption('레몬청')">레몬청</li>
-
       <li onclick="selectOption('레이싱')">레이싱</li>
       <li onclick="selectOption('레저스포츠')">레저스포츠</li>
       <li onclick="selectOption('로봇박물관')">로봇박물관</li>
       <li onclick="selectOption('매월')">매월</li>
       <li onclick="selectOption('목장')">목장</li>
-
       <li onclick="selectOption('문화')">문화</li>
       <li onclick="selectOption('문화시설')">문화시설</li>
       <li onclick="selectOption('미디어전시')">미디어전시</li>
       <li onclick="selectOption('미술관')">미술관</li>
       <li onclick="selectOption('민박')">민박</li>
-
       <li onclick="selectOption('민속촌')">민속촌</li>
       <li onclick="selectOption('박물관')">박물관</li>
       <li onclick="selectOption('반려동물')">반려동물</li>
       <li onclick="selectOption('방목지')">방목지</li>
       <li onclick="selectOption('북카페')">북카페</li>
-
       <li onclick="selectOption('불교')">불교</li>
       <li onclick="selectOption('블루스')">블루스</li>
       <li onclick="selectOption('산책로둘레길')">산책로둘레길</li>
       <li onclick="selectOption('소셜미디어')">소셜미디어</li>
       <li onclick="selectOption('소품샵')">소품샵</li>
-
       <li onclick="selectOption('쇼핑')">쇼핑</li>
       <li onclick="selectOption('스노클링')">스노클링</li>
       <li onclick="selectOption('스쿠터')">스쿠터</li>
       <li onclick="selectOption('스포츠')">스포츠</li>
       <li onclick="selectOption('승마')">승마</li>
-
       <li onclick="selectOption('아울렛')">아울렛</li>
       <li onclick="selectOption('알카파')">알카파</li>
       <li onclick="selectOption('알파카')">알파카</li>
       <li onclick="selectOption('역사유적박물관')">역사유적박물관</li>
       <li onclick="selectOption('온실')">온실</li>
-
       <li onclick="selectOption('우리들의')">우리들의</li>
       <li onclick="selectOption('유적지')">유적지</li>
       <li onclick="selectOption('일과')">일과</li>
       <li onclick="selectOption('자연')">자연</li>
       <li onclick="selectOption('전기바이크')">전기바이크</li>
-
       <li onclick="selectOption('전기자전거')">전기자전거</li>
       <li onclick="selectOption('전기차')">전기차</li>
       <li onclick="selectOption('전동스쿠터')">전동스쿠터</li>
       <li onclick="selectOption('전통시장')">전통시장</li>
       <li onclick="selectOption('제주마')">제주마</li>
-
       <li onclick="selectOption('족욕')">족욕</li>
       <li onclick="selectOption('체험')">체험</li>
       <li onclick="selectOption('체험카페')">체험카페</li>
       <li onclick="selectOption('체험활동')">체험활동</li>
       <li onclick="selectOption('촬영지')">촬영지</li>
-
       <li onclick="selectOption('축제')">축제</li>
       <li onclick="selectOption('축제행사')">축제행사</li>
       <li onclick="selectOption('친목')">친목</li>
       <li onclick="selectOption('카약체험')">카약체험</li>
       <li onclick="selectOption('카트')">카트</li>
-
       <li onclick="selectOption('카페')">카페</li>
       <li onclick="selectOption('캠핑')">캠핑</li>
       <li onclick="selectOption('쿠킹')">쿠킹</li>
       <li onclick="selectOption('테마')">테마</li>
       <li onclick="selectOption('테마공원')">테마공원</li>
-
       <li onclick="selectOption('테마파크')">테마파크</li>
       <li onclick="selectOption('투어')">투어</li>
       <li onclick="selectOption('편집숍')">편집숍</li>
       <li onclick="selectOption('핑크뮬리축제')">핑크뮬리축제</li>
       <li onclick="selectOption('해양레포츠')">해양레포츠</li>
-
       <li onclick="selectOption('효리네')">효리네</li>
       <li onclick="selectOption('힐링')">힐링</li>
-      
     </ul>
   </div>
 
+  <div class="icon-before"></div>
+  <div class="icon-next"></div>
   <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
 
   <script>

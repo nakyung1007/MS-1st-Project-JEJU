@@ -2,86 +2,64 @@
 // noinspection DuplicatedCode,JSCheckFunctionSignatures,JSUnresolvedReference
 
 import PageTitle from "../../component/text/PageTitle.jsx";
-import ButtonContainer from "../../component/button/ButtonContainer.jsx";
-import Button from "../../component/button/Button.jsx";
 import PrevButton from "../../component/button/PrevButton.jsx";
 import NextButton from "../../component/button/NextButton.jsx";
 import {useData} from "../../context/DataContext.jsx";
 import {useEffect, useState} from "react";
-
-const initButtons = [
-    {
-        text: "봄",
-        isClicked: false
-    },
-    {
-        text: "여름",
-        isClicked: false
-    },
-    {
-        text: "가을",
-        isClicked: false
-    },
-    {
-        text: "겨울",
-        isClicked: false
-    }
-];
+import {useNavigate} from "react-router-dom";
+import Input from "../../component/input/Input.jsx";
 
 const Season = () => {
+    const nav = useNavigate();
     const {userData, setUserData} = useData();
-    const [buttons, setButtons] = useState(initButtons);
+    const [isAnswered, setIsAnswered] = useState(false);
 
-    const onClickSeason = (button) => {
-        let changeButtons = buttons;
-        changeButtons = changeButtons.map(item => item.text === button.text ? {
-            ...item,
-            isClicked: !item.isClicked
-        } : {...item, isClicked: false});
-        setButtons(changeButtons);
+    const onChangeMonth = (e) => {
+        const flag = (Number(e.target.value) > 0 && Number(e.target.value) < 13);
+
+        if (!flag && e.target.value.length > 0) {
+            alert('1 ~ 12 사이의 숫자만 입력해주세요.');
+        }
+
+        setUserData({
+            ...userData,
+            month: e.target.value
+        });
+
+        if (e.target.value.length > 0 && flag) {
+            setIsAnswered(true);
+        } else {
+            setIsAnswered(false);
+        }
     };
 
     useEffect(() => {
-        if (userData.season) {
-            const newButtons = buttons.map(item => item.text === userData.season ? {
-                ...item,
-                isClicked: true
-            } : {...item, isClicked: false});
-            setButtons(newButtons);
+        if (!userData.userNo) {
+            nav('/');
+        }
+
+        if (userData.month && userData.month.length > 0) {
+            setIsAnswered(true);
         }
     }, []);
-
-    useEffect(() => {
-        let season = null;
-        buttons.map(item => item.isClicked === true ? season = item.text : item);
-
-        if (season !== null) {
-            setUserData({
-                ...userData,
-                season: season
-            });
-        }
-    }, [buttons]);
 
     return (
         <div
             className={"h-screen w-full bg-cover bg-center relative"}
             style={{backgroundImage: "url('/public/images/season.jpg')"}}
         >
-            <PageTitle text={"제주, 어느 계절에 떠나고 싶으신가요?"}/>
+            <PageTitle text={"제주, 언제 떠나고 싶으신가요?"}/>
 
-            <div className={"absolute w-full flex justify-center bottom-2/12"}>
-                <ButtonContainer>
-                    {
-                        buttons.map((button, index) => (
-                            <Button key={index} index={index} button={button} onClick={onClickSeason}/>
-                        ))
-                    }
-                </ButtonContainer>
-            </div>
+            <Input
+                type={"number"}
+                name={"month"}
+                text={"숫자로 떠나시는 월을 입력해주세요.(1~12)"}
+                value={userData.month ? userData.month : ""}
+                onChange={onChangeMonth}
+            />
 
             <PrevButton url={"/period"}/>
-            <NextButton url={"/sleep"}/>
+            <NextButton url={"/keyword"} isAnswered={isAnswered}/>
         </div>
     );
 };

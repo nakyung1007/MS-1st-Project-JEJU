@@ -26,7 +26,6 @@ const ListModal = ({isOpen, onClose}) => {
                     if (resultData) {
                         if (resultData.status === 'OK') {
                             const data = resultData.data;
-                            console.log(data);
                             setInfoList([...data]);
                         }
                     } else if (error) {

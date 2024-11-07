@@ -25,6 +25,7 @@ export default {
                 'text-focus-in': 'text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
                 'roll-in-left': 'roll-in-left 0.6s ease-out both',
                 'focus-in-expand-fwd': 'focus-in-expand-fwd 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+                'slide-top': 'slide-top 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both infinite',
             },
             keyframes: {
                 twinkle: {
@@ -77,7 +78,17 @@ export default {
                         filter: 'blur(0)',
                         opacity: '1'
                     }
-                }
+                },
+                'slide-top': {
+                    '0%': {
+                        transform: 'translateY(100px)',
+                        opacity: '0'
+                    },
+                    '100%': {
+                        transform: 'translateY(0)',
+                        opacity: '1'
+                    }
+                },
             },
             animationDelay: {
                 '0': '0ms',

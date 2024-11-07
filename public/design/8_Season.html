@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계절</title>
+  <style>
+    /* 기본 스타일 설정 */
+    @font-face {
+    font-family: 'RixXladywatermelonR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+    body {
+      font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */      
+      display: flex;
+      justify-content: center; /* 수평 방향 중앙 정렬 */ 
+      align-items: center; /* 수직 중앙 정렬 */
+      flex-direction: column;/* 정렬 방향 설정 */
+       /* 여백 제거 */
+      margin: 0; 
+      padding: 0;
+       /* 배경 이미지 설정  */
+      background-image: url('./static/images/season.jpg');
+      background-size: cover; /* 배경 이미지를 화면 전체에 맞춤 */
+      background-position: center; /* 이미지가 가운데 오도록 설정 */
+      background-attachment: fixed; /* 스크롤 시 배경이 고정되도록 설정 */
+      background-repeat: no-repeat; /* 이미지 반복 방지 */
+    }
+    .text-focus-in {
+    	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
+    }
+    /* 질문 */
+    .text {
+      /* 문구 고정 */
+      /* 중앙 정렬 */
+      justify-content: center;
+      font-size: 4.5em;
+      margin-top : 33vh;
+    } 
+    /* 입력창 */
+    .input-text {
+      color: white;
+      font-size: 2em;
+      background-color: #7ed957;
+      /* 테두리 */
+      border: none;
+      border-radius: 25vh;
+      /* 클릭시 커서*/
+      cursor: pointer;
+      text-align: center;
+      padding:  2vh 18.3vw;
+      outline: none;
+      margin-top: 29vh;
+      }
+    
+     /* 클릭시 변경되는 답변 */
+    .input-text-enter {
+      font-family: 'RixXladywatermelonR',sans-serif;
+      color: white;
+      font-size: 2em;
+      background-color: #feac36;
+      border: none;
+      border-radius: 25vh;
+      cursor: pointer;
+      text-align: center;
+      padding:  2vh 20vw;
+      outline: none;
+      margin-top: 29vh;
+      }
+    /* 하단 아이콘 */
+    .icon-before {
+      position: absolute;
+      bottom: 3%;
+      left: 2%;
+      width: 85px;
+      height: 93px;
+      background: url('./static/images/before_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
+    /* 하단 아이콘 */
+    .icon-next {
+      position: absolute;
+      bottom: 3%;
+      right: 2%;
+      width: 83px;
+      height: 89px;
+      background: url('./static/images/next_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
+    .we{
+      display: fixed;
+      position: absolute;
+      bottom: 1%;
+      color: #adb5bd;
+    } 
+    @-webkit-keyframes text-focus-in {
+      0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+      }
+    }
+    @keyframes text-focus-in {
+      0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+    <p class="text text-focus-in">제주, 어느 계절에 떠나고 싶으신가요?</p>
+    <span id="input-container" class="input-text" onclick="showInput()">숫자로 떠나시는 월을 입력해주세요.</span>
+    </div>
+    <div class="icon-before"></div>
+    <div class="icon-next"></div>
+  <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
+  <script>
+    function showInput() {
+      const container = document.getElementById('input-container');
+      container.outerHTML = '<input class="input-text-enter">';
+    }
+    </script>
+</body>
+</html>
