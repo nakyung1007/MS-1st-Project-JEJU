@@ -4,8 +4,8 @@ const ButtonContainer = ({children}) => {
     return (
         <div
             className={
-                "w-full flex justify-center " +
-                "2xl:space-x-28 " +
+                "flex w-6/12 justify-center items-center " +
+                "2xl:space-x-24 " +
                 "xl:space-x-24 " +
                 "lg:space-x-20 " +
                 "md:space-x-12 " +

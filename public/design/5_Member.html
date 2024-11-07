@@ -3,120 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>구성원</title>
+  <title>동행인</title>
   <style>
-    /* 기존 스타일 */
-
+    /* 기본 폰트 스타일 설정 */
     @font-face {
-      font-family: 'RixXladywatermelonR';
-      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-    }
+    font-family: 'RixXladywatermelonR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
     body {
-      font-family: 'RixXladywatermelonR', sans-serif;
+      font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */      
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin: 0;
+      justify-content: center; /* 수평 방향 중앙 정렬 */ 
+      align-items: center; /* 수직 중앙 정렬 */
+      flex-direction: column;/* 정렬 방향 설정 */
+       /* 여백 제거 */
+      margin: 0; 
       padding: 0;
-      background-image: url('./static/images/top_main.png');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+       /* 배경 이미지 설정  */
+      background-image: url('./static/images/member.jpg');
+      background-size: cover; /* 배경 이미지를 화면 전체에 맞춤 */
+      background-position: center; /* 이미지가 가운데 오도록 설정 */
+      background-attachment: fixed; /* 스크롤 시 배경이 고정되도록 설정 */
+      background-repeat: no-repeat; /* 이미지 반복 방지 */
     }
-    .mung {
-      display: fixed;
-      position: absolute;
-      top: 22vh;
-      right: 26vw;
-      width: 110px;
-      height: 89px;
-      background: url('./static/images/mung.jpg') no-repeat center;
-      background-size: cover;
-      border: none;
-      cursor: pointer;
-      z-index: -1;
-    }     
-    .mung-1 {
-      display: fixed;
-      position: absolute;
-      top: 63vh;
-      right: 26vw;
-      width: 110px;
-      height: 89px;
-      background: url('./static/images/mung.jpg') no-repeat center;
-      background-size: cover;
-      border: none;
-      cursor: pointer;
-      z-index: -1;
-    } 
-    .text-focus-in {
-      -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-      animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
-    }
-    .text {
-      display: fixed;
-      justify-content: center;
-      font-size: 4.5em;
-      margin-top: 17vh;
-    }
-    .text-1 {
-      display: fixed;
-      justify-content: center;
-      font-size: 4.5em;
-      margin-top: 13.2vh;
-    }
-    .icon-before {
-      display: fixed;
-      position: absolute;
-      bottom: 3%;
-      left: 2%;
-      width: 85px;
-      height: 93px;
-      background: url('./static/images/before_gul.jpg') no-repeat center;
-      background-size: cover;
-      border: none;
-      cursor: pointer;
-    } 
-    .icon-next {
-      display: fixed;
-      position: absolute;
-      bottom: 3%;
-      right: 2%;
-      width: 83px;
-      height: 89px;
-      background: url('./static/images/next_gul.jpg') no-repeat center;
-      background-size: cover;
-      border: none;
-      cursor: pointer;
-    } 
-    .we {
-      display: fixed;
-      position: absolute;
-      bottom: 1%;
-      color: #adb5bd;
-    }   
     
+    .text-focus-in {
+    	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
+    }
+    /* 질문 */
+    .text {
+      /* 문구 고정 */
+      display: fixed;
+      /* 중앙 정렬 */
+      justify-content: center;
+      font-size: 4.5em;
+      margin-top : 33vh;
+    }   
         /* 공통 스타일 */
     .custom-dropdown {
       position: relative;
       display: inline-block;
-      margin-top: 3vh;
+      margin-top: 29vh;
     }
 
     .custom-dropdown button {
       font-family: 'RixXladywatermelonR', sans-serif;
+      color: black;
       background-color: white;
       border: 4px solid #7ed957;
-      color: black;
       border-radius: 5vh;
       font-size: 2em;
       cursor: pointer;
-      padding: 3vh 14vw;
       text-align: center;
+      padding: 3vh 21vw;
       width: 100%;
     }
 
@@ -157,7 +99,38 @@
     .custom-dropdown-content.show {
       display: block;
     }
-
+    /* 하단 아이콘 */
+    .icon-before {
+      display: fixed;
+      position: absolute;
+      bottom: 3%;
+      left: 2%;
+      width: 85px;
+      height: 93px;
+      background: url('./static/images/before_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
+    /* 하단 아이콘 */
+    .icon-next {
+      display: fixed;
+      position: absolute;
+      bottom: 3%;
+      right: 2%;
+      width: 83px;
+      height: 89px;
+      background: url('./static/images/next_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
+    .we{
+      display: fixed;
+      position: absolute;
+      bottom: 1%;
+      color: #adb5bd;
+    } 
     @-webkit-keyframes text-focus-in {
       0% {
         -webkit-filter: blur(12px);
@@ -183,58 +156,25 @@
       }
     }
 
-
   </style>
-  
-   
 </head>
 <body>
   <p class="text text-focus-in">제주, 누구와 함께 떠나시나요 ?</p>
-  <div class="mung"></div>
   <div class="custom-dropdown">
     <button id="member-button">선택해주세요 !</button>
     <ul class="custom-dropdown-content" id="member-dropdown">
-      <li onclick="selectMemberOption('기타')">혼자</li>
+      <li onclick="selectMemberOption('혼자')">혼자</li>
       <li onclick="selectMemberOption('친구')">친구</li>
-      <li onclick="selectMemberOption('부모')">부모님</li>
-      <li onclick="selectMemberOption('배우자')">배우자</li>
-      <li onclick="selectMemberOption('연인')">연인</li>
-      <li onclick="selectMemberOption('자녀')">아이</li>
-      <li onclick="selectMemberOption('친인척')">친척</li>
-      <li onclick="selectMemberOption('형제/자매')">형제</li>
-      <li onclick="selectMemberOption('형제/자매')">자매</li>
-      <li onclick="selectMemberOption('조부모')">조부모님</li>
-      <li onclick="selectMemberOption('동료')">동료</li>
-      <li onclick="selectMemberOption('모임/단체')">모임</li>
-      <li onclick="selectMemberOption('모임/단체')">단체</li>
+      <li onclick="selectMemberOption('연인/배우자')">연인</li>
     </ul>
-  </div>
-  <p class="text-1 text-focus-in">제주,더 자세하게 알려주세요 !</p>
-  <div class="mung-1"></div>
-  <div class="custom-dropdown">
-    <button id="status-button">선택해주세요 !</button>
-    <ul class="custom-dropdown-content" id="status-dropdown">
-      <li onclick="selectStatusOption('나홀로 여행')">나홀로 여행</li>
-      <li onclick="selectStatusOption('2인 가족 여행')">둘이서 가족 여행</li>
-      <li onclick="selectStatusOption('3인 이상 가족 여행(친척 포함)')">여러명의 가족과 여행</li>
-      <li onclick="selectStatusOption('부모 동반 여행')">부모 동반 여행</li>
-      <li onclick="selectStatusOption('자녀 동반 여행')">자녀 동반 여행</li>
-      <li onclick="selectStatusOption('2인 여행(가족 외)')">가족이 아닌 사람과 둘이서 여행</li>
-      <li onclick="selectStatusOption('3인 이상 여행(가족 외)')">가족이 아닌 여러명과 여행</li>
-      <li onclick="selectStatusOption('3대 동반 여행(친척 포함)')">3대 동반 여행</li>
-    </ul>
-  </div>
+  </div>  
   <div class="icon-before"></div>
-  <div class="icon-next"></div>
+    <div class="icon-next"></div>
   <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
-  <script>
-        // 버튼 클릭 시 드롭다운 토글
+  <script>    
+  // 버튼 클릭 시 드롭다운 토글
     document.getElementById("member-button").onclick = function() {
       document.getElementById("member-dropdown").classList.toggle("show");
-    };
-
-    document.getElementById("status-button").onclick = function() {
-      document.getElementById("status-dropdown").classList.toggle("show");
     };
 
     // 옵션 선택 시 버튼 텍스트 업데이트
@@ -243,25 +183,19 @@
       document.getElementById("member-dropdown").classList.remove("show");
     }
 
-    function selectStatusOption(value) {
-      document.getElementById("status-button").textContent = value;
-      document.getElementById("status-dropdown").classList.remove("show");
-    }
-
     /* 드롭다운 닫기 위한 클릭 이벤트 */
-window.onclick = function(event) {
-  if (!event.target.matches('.custom-dropdown button')) {
-    var dropdowns = document.getElementsByClassName("custom-dropdown-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+    window.onclick = function(event) {
+      if (!event.target.matches('.custom-dropdown button')) {
+        var dropdowns = document.getElementsByClassName("custom-dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
       }
     }
-  }
-}
 
-  </script>  
+    </script>
 </body>
-
 </html>

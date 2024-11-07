@@ -19,7 +19,7 @@ const PrevButton = ({url, isInitial}) => {
     };
 
     return (
-        <div className={"fixed left-4 bottom-3"}>
+        <div className={"fixed left-4 bottom-3 z-50"}>
             <button
                 className={
                     "bg-contain bg-center bg-no-repeat focus:outline-none " +

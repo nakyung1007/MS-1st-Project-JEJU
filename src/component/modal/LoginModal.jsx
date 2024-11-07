@@ -30,7 +30,7 @@ const LoginModal = ({isOpen, onClose, isNew, callback}) => {
 
     const onChangePassword = (e) => {
         const regex = /^[0-9]+$/;
-        if (regex.test(e.target.value)) {
+        if (regex.test(e.target.value) || e.target.value === '') {
             setPassword(e.target.value);
         }
     }

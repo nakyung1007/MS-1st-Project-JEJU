@@ -9,7 +9,7 @@ import useAxios from "../../hook/useAxios.js";
 
 const ListModal = ({isOpen, onClose}) => {
     const {error, fetchData} = useAxios();
-    const {userData} = useData();
+    const {userData, setUserData, setTravelData} = useData();
     const nav = useNavigate();
     const [infoList, setInfoList] = useState([]);
 
@@ -43,13 +43,51 @@ const ListModal = ({isOpen, onClose}) => {
         return;
     }
 
+    const fetchTravelList = async (infoNo) => {
+        try {
+            const resultData = await fetchData({
+                config: {method: 'GET', url: '/api/travel/list'},
+                params: {
+                    infoNo: infoNo,
+                }
+            });
+            if (resultData) {
+                if (resultData.status === 'OK') {
+                    const data = resultData.data;
+                    console.log('data: ', data);
+
+                    setUserData({
+                        ...userData,
+                        infoNo: infoNo,
+                        gender: data.gender,
+                        age: data.age,
+                        companionRelationShip: data.companionRelationShip,
+                        area: data.area,
+                        travelPeriod: data.travelPeriod,
+                        month: data.month,
+                        keyword: data.keyword,
+                        title: data.title
+                    });
+
+                    setTravelData(data.travelList);
+
+                    nav('/result', {state: {isNew: false}});
+                }
+            } else if (error) {
+                console.error("Error: ", error);
+            }
+        } catch (err) {
+            console.error("Error: ", err);
+        }
+    };
+
     const onClickNew = () => {
         onClose();
         nav('/gender');
     };
 
     const onClickExisting = (info) => {
-        console.log('info: ', info);
+        fetchTravelList(info.infoNo);
     };
 
     return (

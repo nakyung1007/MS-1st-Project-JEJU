@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Area Selector</title>
+  <style>    /* 기본 스타일 설정 */
+    @font-face {
+    font-family: 'RixXladywatermelonR';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+    body {
+      font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */      
+      display: flex;
+      justify-content: center; /* 수평 방향 중앙 정렬 */ 
+      align-items: center; /* 수직 중앙 정렬 */
+      flex-direction: column;/* 정렬 방향 설정 */
+       /* 여백 제거 */
+      margin: 0; 
+      padding: 0;
+      background-image: url('./static/images/area_back.jpg'); /* 이미지 경로 */
+      background-size: contain; /* 또는 cover */
+      background-repeat: no-repeat; /* 이미지를 반복하지 않도록 설정 */
+      background-position: center; /* 이미지를 중앙에 배치 */
+    }
+    .text-focus-in {
+    	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
+    }
+    /* 질문 */
+    .text {
+      /* 문구 고정 */
+      /* 중앙 정렬 */
+      justify-content: center;
+      font-size: 4.5em;
+      margin-top : 17vh;
+    } 
+    .map-container {
+      position: relative;
+      width: 60vw; /* 이미지 너비에 맞춰 조정하세요 */
+      height: 60vh; /* 이미지 높이에 맞춰 조정하세요 */
+      background-image: url('./static/images/area.jpeg'); /* 이미지 경로 */
+      background-size: contain; /* 또는 cover */
+      background-repeat: no-repeat; /* 이미지를 반복하지 않도록 설정 */
+      background-position: center; /* 이미지를 중앙에 배치 */
+    }
+
+    .region-btn {
+      font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */    
+      font-size: 3.5em;
+      border: 1px solid #7ed957;
+      position: absolute;
+      width: 50%; /* 각 구역의 너비를 50%로 설정 */
+      height: 50%; /* 각 구역의 높이를 50%로 설정 */
+      background: transparent;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    /* 선택된 구역에 들어 올림 효과 적용 */
+    .region-btn.selected {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 20);
+    }
+
+    #northwest { top: 0; left: 0; }   /* 북서 구역 */
+    #northeast { top: 0; right: 0; }  /* 북동 구역 */
+    #southwest { bottom: 0; left: 0; } /* 남서 구역 */
+    #southeast { bottom: 0; right: 0; } 
+
+        /* 하단 아이콘 */
+    .icon-before {
+      position: absolute;
+      bottom: 3%;
+      left: 2%;
+      width: 85px;
+      height: 93px;
+      background: url('./static/images/before_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
+    /* 하단 아이콘 */
+    .icon-next {
+      position: absolute;
+      bottom: 3%;
+      right: 2%;
+      width: 83px;
+      height: 89px;
+      background: url('./static/images/next_gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      cursor:pointer;
+    } 
+    .we{
+      display: fixed;
+      position: absolute;
+      bottom: 1%;
+      color: #adb5bd;
+    } 
+
+    @keyframes text-focus-in {
+      0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+      }
+      100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <p class="text text-focus-in">제주, 이미지에서 떠나고 싶은 지역을 선택해주세요 !</p>
+<div class="map-container">
+  <button class="region-btn" id="northwest" onclick="selectRegion('northwest')">제주시 서쪽</button>
+  <button class="region-btn" id="northeast" onclick="selectRegion('northeast')">제주시 동쪽</button>
+  <button class="region-btn" id="southwest" onclick="selectRegion('southwest')">서귀포 서쪽</button>
+  <button class="region-btn" id="southeast" onclick="selectRegion('southeast')">서귀포 동쪽</button>
+</div>
+<div class="icon-before"></div>
+<div class="icon-next"></div>
+<p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
+
+<script>
+  function selectRegion(regionId) {
+    // 모든 버튼에서 'selected' 클래스 제거
+    document.querySelectorAll('.region-btn').forEach(btn => {
+      btn.classList.remove('selected');
+    });
+    
+    // 클릭한 버튼에만 'selected' 클래스 추가
+    document.getElementById(regionId).classList.add('selected');
+  }
+</script>
+
+</body>
+</html>

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>계절</title>
+  <title>기간</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  
   <style>
     /* 기본 스타일 설정 */
     @font-face {
@@ -11,7 +12,7 @@
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-4@1.0/RixXladywatermelonR.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-  }
+    }
     body {
       font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */      
       display: flex;
@@ -22,16 +23,12 @@
       margin: 0; 
       padding: 0;
        /* 배경 이미지 설정  */
-      background-image: url('static/images/season.jpg');
+      background-image: url('./static/images/period.jpg');
       background-size: cover; /* 배경 이미지를 화면 전체에 맞춤 */
       background-position: center; /* 이미지가 가운데 오도록 설정 */
       background-attachment: fixed; /* 스크롤 시 배경이 고정되도록 설정 */
       background-repeat: no-repeat; /* 이미지 반복 방지 */
-    }
-    .text-focus-in {
-    	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
-    }
+    }    
     .text-focus-in {
     	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;  
@@ -45,29 +42,34 @@
       font-size: 4.5em;
       margin-top : 33vh;
     }
-    /* flex 버튼 컨테이너 */
-    .button-container {
-      display: flex;
-      gap: 5vw; /* 버튼 사이 간격 설정 */
-      justify-content: center;
-  }
-    .button {
-      display: fixed;
-      font-family: 'RixXladywatermelonR',sans-serif;
-      background-color: #7ed957; /* 버튼 색상 */
+    /* 입력창 */
+    .input-text {
       color: black;
-      border: none;
-      border-radius: 5vh;
-      padding:  2vh 5vw;
+      background-color: white;
+      border: 4px solid #7ed957;
+      border-radius: 25vh;
       font-size: 2em;
       cursor: pointer;
-      transition: background-color 0.3s;
+      text-align: center;
+      padding:  3vh 15.5vw;
+      outline: none;
       margin-top: 29vh;
-    }
-    /* 버튼 클릭시 색상 변경 */
-    .button:hover {
-      background-color: #feac36; /* 버튼 호버 색상 */
-    }
+      }
+    
+     /* 클릭시 변경되는 답변 */
+    .input-text-enter {
+      font-family: 'RixXladywatermelonR',sans-serif;
+      color: black;
+      background-color: #7ed957;
+      border:none;
+      border-radius: 25vh;
+      font-size: 2em;
+      cursor: pointer;
+      text-align: center;
+      padding:  3vh 17vw;
+      outline: none;
+      margin-top: 29vh;
+      }
     /* 하단 아이콘 */
     .icon-before {
       display: fixed;
@@ -76,7 +78,7 @@
       left: 2%;
       width: 85px;
       height: 93px;
-      background: url('static/images/before_gul.jpg') no-repeat center;
+      background: url('./static/images/before_gul.jpg') no-repeat center;
       background-size: cover;
       border : none;
       cursor:pointer;
@@ -89,7 +91,7 @@
       right: 2%;
       width: 83px;
       height: 89px;
-      background: url('static/images/next_gul.jpg') no-repeat center;
+      background: url('./static/images/next_gul.jpg') no-repeat center;
       background-size: cover;
       border : none;
       cursor:pointer;
@@ -127,15 +129,16 @@
   </style>
 </head>
 <body>
-    <p class="text text-focus-in">제주, 어느 계절에 떠나고 싶으신가요?</p>
-    <div class="button-container">
-      <button class="button">&nbsp;봄&nbsp;</button>
-      <button class="button">여름</button>
-      <button class="button">가을</button>
-      <button class="button">겨울</button>
-    </div>
+    <p class="text text-focus-in">제주, 며칠동안 떠나고 싶으신가요?</p>
+    <span id="input-container" class="input-text" onclick="showInput()">숫자로 여행 기간을 입력해주세요.</span>
     <div class="icon-before"></div>
     <div class="icon-next"></div>
   <p class="we">ⓒ 2024. Jeju 넘는 곰 All rights reserved.</p>
+  <script>
+    function showInput() {
+      const container = document.getElementById('input-container');
+      container.outerHTML = '<input class="input-text-enter">';
+    }
+    </script>
 </body>
 </html>

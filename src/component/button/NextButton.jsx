@@ -14,7 +14,7 @@ const NextButton = ({url, isAnswered}) => {
     };
 
     return (
-        <div className={"fixed right-4 bottom-3"}>
+        <div className={"fixed right-4 bottom-3 z-50"}>
             <button
                 className={
                     "bg-contain bg-center bg-no-repeat focus:outline-none " +

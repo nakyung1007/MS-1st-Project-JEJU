@@ -16,14 +16,25 @@ const Keyword = () => {
     const toggleKeyword = () => setIsKeywordOpen(!isKeywordOpen);
 
     const onClickKeyword = (value) => {
+        let keywordList = userData.keyword ? userData.keyword : [];
+
+        const index = keywordList.indexOf(value);
+        if (index !== -1) {
+            keywordList.splice(index, 1);
+        } else {
+            keywordList = [...keywordList, value];
+        }
+
         setUserData({
             ...userData,
-            keyword: value,
+            keyword: keywordList
         });
 
-        setIsAnswered(true);
-
-        toggleKeyword();
+        if (keywordList.length > 0) {
+            setIsAnswered(true);
+        } else {
+            setIsAnswered(false);
+        }
     };
 
     useEffect(() => {
@@ -43,27 +54,24 @@ const Keyword = () => {
                     <img
                         src={`/public/images/item/gul.jpg`}
                         alt={`map`}
-                        className={`-z-50 absolute -top-12/12 -left-32 w-40 h-auto`}
+                        className={`-z-50 absolute -top-8/12 -left-16 w-32 h-auto`}
                     />
-                    <h1 className={`relative text-7xl z-40 mb-10`}>
-                        제주, 여행 키워드를 선택해주세요.
+                    <h1 className={`relative text-7xl z-40 mb-10 animate-text-focus-in`}>
+                        제주, 이번 여행의 키워드를 선택해주세요.
                     </h1>
                 </div>
-                <div className={`relative inline-block items-center justify-center text-center w-full`}>
+                <div className={`relative inline-block items-center justify-center text-center w-full bottom-0`}>
                     <button
                         className={`border-4 bg-white border-jeju-green hover:bg-jeju-green rounded-full p-6 text-3xl w-5/12 mt-8`}
                         onClick={toggleKeyword}
                     >
                         {
-                            userData.keyword ? initKeywordList.find(item => item.value === userData.keyword).text : '눌러주세요 !'
+                            userData.keyword && userData.keyword.length > 0 ? userData.keyword.join(", ") : '눌러주세요 !'
                         }
                     </button>
                     {
                         isKeywordOpen && (
-                            <div
-                                className={"fixed inset-0 z-50 flex justify-center top-5/12"}
-                                onClick={toggleKeyword}
-                            >
+                            <div className={"fixed inset-0 z-40 flex justify-center top-5/12"}>
                                 <div
                                     className="relative bg-black bg-opacity-50 rounded-3xl border-4 border-jeju-green w-11/12 md:w-1/2 lg:w-1/3 p-6 h-[50vh]">
                                     <ul className="overflow-y-scroll h-[44vh] pt-4">
@@ -71,7 +79,7 @@ const Keyword = () => {
                                             initKeywordList.map((item, index) => (
                                                 <li
                                                     key={index}
-                                                    className="px-4 py-2 text-2xl text-white cursor-pointer hover:bg-jeju-green hover:text-black"
+                                                    className={`px-4 py-2 text-2xl text-white cursor-pointer hover:bg-jeju-green hover:text-black ${userData.keyword && userData.keyword.includes(item.value) ? 'bg-jeju-green text-black' : ''}`}
                                                     onClick={() => onClickKeyword(item.value)}
                                                 >
                                                     {item.text}

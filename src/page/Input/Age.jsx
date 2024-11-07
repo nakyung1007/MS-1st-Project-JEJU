@@ -14,10 +14,10 @@ const Age = () => {
     const [isAnswered, setIsAnswered] = useState(false);
 
     const onChangeAge = (e) => {
-        const flag = (Number(e.target.value) > 0 && Number(e.target.value) < 151);
+        const flag = (Number(e.target.value) >= 20 && Number(e.target.value) <= 39);
 
-        if (!flag && e.target.value.length > 0) {
-            alert('1 ~ 150 사이의 숫자만 입력해주세요.');
+        if (!flag && e.target.value.length > 1) {
+            alert('20 ~ 39 사이의 숫자만 입력해주세요.');
         }
 
         setUserData({
@@ -52,7 +52,7 @@ const Age = () => {
             <Input
                 type={"number"}
                 name={"age"}
-                text={"숫자로 나이를 입력해주세요.(1~150)"}
+                text={"숫자로 나이를 입력해주세요.(20~39)"}
                 value={userData.age ? userData.age : ""}
                 onChange={onChangeAge}
             />

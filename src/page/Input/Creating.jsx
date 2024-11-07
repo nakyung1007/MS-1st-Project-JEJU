@@ -6,11 +6,16 @@ import {useNavigate} from "react-router-dom";
 import {useData} from "../../context/DataContext.jsx";
 import {useEffect} from "react";
 import useAxios from "../../hook/useAxios.js";
+import {recommendedPlaces} from "../Main/data/places.js";
 
 const Creating = () => {
     const {error, fetchData} = useAxios();
     const nav = useNavigate();
-    const {userData} = useData();
+    const {userData, setUserData, travelData, setTravelData} = useData();
+
+    const sleep = (ms) => {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    };
 
     useEffect(() => {
         const saveInfo = async () => {
@@ -22,13 +27,26 @@ const Creating = () => {
                 if (resultData) {
                     if (resultData.status === 'OK') {
                         const data = resultData.data;
-                        console.log('data: ', data);
+                        setUserData({
+                            ...userData,
+                            infoNo: data.infoNo,
+                        })
+                        setTravelData([
+                            ...travelData,
+                            ...recommendedPlaces,
+                        ]);
+                        await sleep(3000);
+                        nav('/result', {state: {isNew: true}});
                     }
                 } else if (error) {
                     console.error("Error: ", error);
+                    alert('에러가 발생했습니다. 이전 페이지로 돌아갑니다.');
+                    nav('/keyword');
                 }
             } catch (err) {
                 console.error("Error: ", err);
+                alert('에러가 발생했습니다. 이전 페이지로 돌아갑니다.');
+                nav('/keyword');
             }
         };
 

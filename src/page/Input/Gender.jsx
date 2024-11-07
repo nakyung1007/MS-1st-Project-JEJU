@@ -83,14 +83,19 @@ const Gender = () => {
 
             <div className={"absolute w-full flex justify-center bottom-2/12"}>
                 <ButtonContainer>
-                    {buttons.map((button, index) => (
-                        <Button
-                            key={index}
-                            index={index}
-                            button={button}
-                            onClick={onClickGender}
-                        />
-                    ))}
+                    <Button
+                        button={buttons[0]}
+                        onClick={onClickGender}
+                    />
+                    <img
+                        src={`/public/images/item/boy_girl.jpg`}
+                        alt={`boy_girl`}
+                        className={`w-auto h-36`}
+                    />
+                    <Button
+                        button={buttons[1]}
+                        onClick={onClickGender}
+                    />
                 </ButtonContainer>
             </div>
 

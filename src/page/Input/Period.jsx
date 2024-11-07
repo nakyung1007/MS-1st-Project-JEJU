@@ -44,16 +44,15 @@ const Period = () => {
         >
             <PageTitle text={"제주, 며칠동안 떠나고 싶으신가요?"}/>
 
-            <input
-                className={"absolute flex left-1/2 transform -translate-x-1/2 justify-center bg-jeju-green text-white placeholder-white rounded-full text-center w-8/12 bottom-2/12 space-x-40 py-6 text-4xl no-arrows outline-none"}
+            <Input
                 type={"number"}
                 name={"period"}
-                placeholder={"숫자로 여행 기간을 입력해주세요."}
+                text={"숫자로 여행 기간을 입력해주세요."}
                 value={userData.travelPeriod ? userData.travelPeriod : ""}
                 onChange={(e) => onChangePeriod(e)}
             />
 
-            <PrevButton url={"/people"}/>
+            <PrevButton url={"/area"}/>
             <NextButton url={"/season"} isAnswered={isAnswered}/>
         </div>
     );

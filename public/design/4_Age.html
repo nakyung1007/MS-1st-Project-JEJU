@@ -44,30 +44,30 @@
     }
     /* 숫자로 나이를 입력해주세요 */
     .input-text {
-      display: fixed;
-      color: white;
+      font-family: 'RixXladywatermelonR',sans-serif;
       font-size: 2em;
+      color: black;
+      background-color: white;
+      border: 4px solid #7ed957;
+      border-radius: 25vh;
+      cursor: pointer;
+      text-align: center;
+      padding:  3vh 17vw;
+      outline: none;
+      margin-top: 29vh;
+      }
+
+    /* 클릭시 변경되는 답변 */
+    .input-text-enter {
+      font-family: 'RixXladywatermelonR',sans-serif;
+      font-size: 2em;
+      color: black;
       background-color: #7ed957;
       border: none;
       border-radius: 25vh;
       cursor: pointer;
       text-align: center;
-      padding:  2vh 20vw;
-      outline: none;
-      margin-top: 29vh;
-      }
-    /* 클릭시 변경되는 답변 */
-    .input-text-enter {
-      font-family: 'RixXladywatermelonR',sans-serif;
-      display: fixed;
-      color: white;
-      font-size: 2em;
-      background-color: #feac36;
-      border: none;
-      border-radius: 25vh;
-      cursor: pointer;
-      text-align: center;
-      padding:  2vh 19.7vw;
+      padding:  3vh 24vw;
       outline: none;
       margin-top: 29vh;
       }
@@ -140,7 +140,7 @@
   <script>
     function showInput() {
       const container = document.getElementById('input-container');
-      container.outerHTML = '<input class="input-text-enter">';
+      container.outerHTML = '<input type="number" min="20" max="39" class="input-text-enter">';
     }
     </script>
 </body>

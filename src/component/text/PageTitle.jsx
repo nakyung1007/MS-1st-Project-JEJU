@@ -3,12 +3,12 @@
 const PageTitle = ({text}) => {
     return (
         <div
-            className={"absolute inset-0 flex items-center justify-center -top-1/4"}
+            className={"absolute inset-0 flex items-center justify-center -top-1/4 animate-text-focus-in"}
         >
             <p
                 className={
                     "text-black " +
-                    "2xl:text-8xl " +
+                    "2xl:text-7xl " +
                     "xl:text-7xl " +
                     "lg:text-6xl " +
                     "md:text-5xl " +

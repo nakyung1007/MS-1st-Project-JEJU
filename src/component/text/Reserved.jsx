@@ -2,7 +2,7 @@ const Reserved = () => {
     return (
         <p
             className={
-                "fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 text-jeju-gray " +
+                "fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 text-jeju-gray z-50 " +
                 "2xl:text-xl " +
                 "xl:text-xl " +
                 "lg:text-xl " +
