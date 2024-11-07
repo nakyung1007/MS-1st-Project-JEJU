@@ -8,7 +8,7 @@ const ModalTitle = ({text}) => {
             <img
                 src={`/public/images/item/gul.jpg`}
                 alt={`orange`}
-                className={`z-40 absolute -top-12 -left-8 w-20 h-20`}
+                className={`z-40 absolute -top-5 -left-9 w-20 h-20`}
             />
             <h1
                 className={`relative text-5xl z-50 mb-10`}
