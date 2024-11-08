@@ -218,7 +218,7 @@ const Result = () => {
                                                                     <div
                                                                         key={'ai' + index}
                                                                         className={`flex items-center space-x-4 p-2 bg-white shadow-md rounded-md cursor-pointer hover:bg-jeju-gray`}
-                                                                        onClick={() => onClickPlace(travel)}
+                                                                        onClick={() => onClickPlace(travel.name)}
                                                                     >
                                                                         {
                                                                             travel.imageUrl && (

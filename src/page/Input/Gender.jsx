@@ -14,10 +14,12 @@ const initButtons = [
     {
         text: "남성",
         isClicked: false,
+        value: "남"
     },
     {
         text: "여성",
         isClicked: false,
+        value: "여"
     },
 ];
 
@@ -63,7 +65,7 @@ const Gender = () => {
     useEffect(() => {
         let gender = null;
         buttons.map((item) =>
-            item.isClicked === true ? (gender = item.text) : item
+            item.isClicked === true ? (gender = item.value) : item
         );
 
         if (gender !== null) {

@@ -4,11 +4,13 @@ import {useState} from "react";
 import LoginModal from "../../component/modal/LoginModal.jsx";
 import UsedModal from "../../component/modal/UsedModal.jsx";
 import ListModal from "../../component/modal/ListModal.jsx";
+import InfoModal from "../../component/modal/InfoModal.jsx";
 
 const Info = () => {
     const [isUsedModalOpen, setIsUsedModalOpen] = useState(false);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isListModalOpen, setIsListModalOpen] = useState(false);
+    const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
     const [isNew, setIsNew] = useState(false);
 
     const openUsedModal = () => {
@@ -36,11 +38,28 @@ const Info = () => {
         setIsListModalOpen(false);
     }
 
+    const openInfoModal = () => {
+        setIsInfoModalOpen(true);
+    }
+
+    const closeInfoModal = () => {
+        setIsInfoModalOpen(false);
+    }
+
     return (
         <div
             className={"h-screen w-full bg-cover bg-center relative"}
             style={{backgroundImage: "url('/public/images/information.jpg')"}}
         >
+            <button
+                className={
+                    "fixed bottom-1/4 left-8/12 ml-16 bg-contain bg-center bg-no-repeat focus:outline-none w-16 h-16 justify-end animate-roll-in-left"
+                }
+                style={{
+                    backgroundImage: "url('/public/images/gul_information.jpg')"
+                }}
+                onClick={() => openInfoModal()}
+            />
             <div
                 className={"fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-10"}
             >
@@ -77,6 +96,7 @@ const Info = () => {
                 />
             </div>
 
+            <InfoModal isOpen={isInfoModalOpen} onClose={closeInfoModal}/>
             <UsedModal isOpen={isUsedModalOpen} onClose={closeUsedModal} callback={openLoginModal}/>
             <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} isNew={isNew} callback={openListModal}/>
             <ListModal isOpen={isListModalOpen} onClose={closeListModal}/>

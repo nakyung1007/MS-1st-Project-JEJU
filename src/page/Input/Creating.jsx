@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-// noinspection JSIgnoredPromiseFromCall
+// noinspection JSIgnoredPromiseFromCall,JSCheckFunctionSignatures
 
 import SubTitle from "../../component/text/SubTitle.jsx";
 import {useNavigate} from "react-router-dom";
@@ -7,9 +7,11 @@ import {useData} from "../../context/DataContext.jsx";
 import {useEffect} from "react";
 import useAxios from "../../hook/useAxios.js";
 import {recommendedPlaces} from "../Main/data/places.js";
+import useModelAxios from "../../hook/useModelAxios.js";
 
 const Creating = () => {
     const {error, fetchData} = useAxios();
+    const {errorM, fetchDataM} = useModelAxios();
     const nav = useNavigate();
     const {userData, setUserData, travelData, setTravelData} = useData();
 
@@ -30,11 +32,7 @@ const Creating = () => {
                         setUserData({
                             ...userData,
                             infoNo: data.infoNo,
-                        })
-                        setTravelData([
-                            ...travelData,
-                            ...recommendedPlaces,
-                        ]);
+                        });
                         await sleep(3000);
                         nav('/result', {state: {isNew: true}});
                     }
@@ -50,10 +48,47 @@ const Creating = () => {
             }
         };
 
+        const getAIdata = async () => {
+            const requestData = {
+                gender: userData.gender,
+                age: Number(userData.age),
+                companion_relationship: userData.companionRelationship,
+                direction: userData.area,
+                keyword: userData.keyword.join(' ')
+            };
+
+            try {
+                const resultData = await fetchDataM({
+                    config: {method: 'POST', url: '/api/recommend'},
+                    body: requestData
+                });
+                console.log('resultData: ', resultData);
+                if (resultData && resultData.length > 0) {
+                    resultData.forEach(item => {
+                        item.type = 'ai';
+                    });
+                    setTravelData([
+                        ...travelData,
+                        ...resultData,
+                        ...recommendedPlaces,
+                    ]);
+                    await saveInfo();
+                } else if (errorM) {
+                    console.error("Error: ", errorM);
+                    alert('에러가 발생했습니다. 이전 페이지로 돌아갑니다.');
+                    nav('/keyword');
+                }
+            } catch (err) {
+                console.error("Error: ", err);
+                alert('에러가 발생했습니다. 이전 페이지로 돌아갑니다.');
+                nav('/keyword');
+            }
+        };
+
         if (!userData.userNo) {
             nav('/');
         } else {
-            saveInfo();
+            getAIdata();
         }
     }, []);
 

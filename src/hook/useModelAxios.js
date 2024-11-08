@@ -5,17 +5,17 @@ import {useState} from "react";
 
 // 기본 axios 인스턴스 생성
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:8080', // API의 기본 URL로 설정
+    baseURL: 'http://localhost:5000', // API의 기본 URL로 설정
     timeout: 60 * 1000, // 60초
     headers: {'Content-Type': 'application/json'},
     withCredentials: true // 쿠키를 포함하여 요청하기 위해 설정
 });
 
 // Axios Hook
-const useAxios = () => {
-    const [response, setResponse] = useState(null);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
+const useModelAxios = () => {
+    const [responseM, setResponseM] = useState(null);
+    const [errorM, setErrorM] = useState(null);
+    const [loadingM, setLoadingM] = useState(false);
 
     // 요청 인터셉터 설정
     axiosInstance.interceptors.request.use(
@@ -36,7 +36,7 @@ const useAxios = () => {
                 try {
                     return axiosInstance(originalRequest);
                 } catch (err) {
-                    setError(err);
+                    setErrorM(err);
                 }
             }
 
@@ -44,8 +44,8 @@ const useAxios = () => {
         }
     );
 
-    const fetchData = async ({config, body = null, params = null}) => {
-        setLoading(true);
+    const fetchDataM = async ({config, body = null, params = null}) => {
+        setLoadingM(true);
         try {
             const result = await axiosInstance({
                 ...config,
@@ -53,16 +53,16 @@ const useAxios = () => {
                 params: params,
             });
             const resultData = result.data;
-            setResponse(resultData);
+            setResponseM(resultData);
             return resultData;
         } catch (err) {
-            setError(err);
+            setErrorM(err);
         } finally {
-            setLoading(false);
+            setLoadingM(false);
         }
     };
 
-    return {response, error, loading, fetchData};
+    return {responseM, errorM, loadingM, fetchDataM};
 };
 
-export default useAxios;
+export default useModelAxios;

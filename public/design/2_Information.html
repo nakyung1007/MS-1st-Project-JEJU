@@ -56,7 +56,45 @@
       border : none;
       cursor:pointer;
     }
+    .question{
+      background: url('./static/images/gul_information.jpg') no-repeat center;
+      background-size: cover;
+      position: absolute;
+      font-family: 'RixXladywatermelonR',sans-serif; /* 글꼴 설정 */
+      width: 2.8vw;
+      height: 3vw;
+      border: none;
+      top: 68vh;
+      left: 69vw;
+      animation-delay: 5s;
+    }
+    .how-gul{
+      position: absolute;
+      top: 39%;
+      left: 30%;
+      width: 70px;
+      height: 75px;
+      background: url('./static/images/item/gul.jpg') no-repeat center;
+      background-size: cover;
+      border : none;
+      z-index: 0;
+    }
+    .how-title{
+      position: absolute;
+      font-size: 2em;
+      z-index: 1;
 
+      margin-left: 2vw;
+      text-align: center;
+      line-height:4.3vh;
+    }
+    /* 시작 굴러오는 애니메이션 */
+    .roll-in-left {
+      -webkit-animation: roll-in-left 1.3s ease-out both;
+              animation: roll-in-left 1.3s ease-out both;
+    }
+
+    
     .icon-before {
       left: 2%; width: 85px; height: 93px;
       background: url('./static/images/before_gul.jpg') no-repeat center;
@@ -386,15 +424,42 @@
                 filter: blur(0);
         opacity: 1;
       }
+    }  
+    @keyframes roll-in-left {
+    0% {
+      -webkit-transform: translateX(-800px) rotate(-540deg);
+              transform: translateX(-800px) rotate(-540deg);
+      opacity: 0;
     }
+    100% {
+      -webkit-transform: translateX(0) rotate(0deg);
+              transform: translateX(0) rotate(0deg);
+      opacity: 1;
+    }
+  }
   </style>
 </head>
 <body>
-    <p class="jeju-1 focus-in-expand-fwd">20대, 제주도 여행 가실 때, 계획 짜기 막막하지 않으셨나요 ?</p>
+    <p class="jeju-1 focus-in-expand-fwd">제주도 여행 가실 때, 계획 짜기 막막하지 않으셨나요 ?</p>
     <p class="jeju-2 focus-in-expand-fwd">원하시는 걸 알려주시면 저희가 만들어드릴게요 !</p>
+
     <div class="icon-before"></div>
     <button class="icon-next" id="openModalBtn"></button>
+    <button class="question roll-in-left" id="openHowBtn"></button>
     
+    <!-- 설명 모달 -->
+    <div id="how" class="modal">
+      <div class="modal-content-0">
+          <span class="close" id="closeHow">&times;</span>
+          <div class="how-gul" src="./static/images/item/gul.jpg"></div>
+        <div class="how-section">
+          <p class="how-title">"도르멍 탐라"는 사용자님이 질문에 답변해주신 내용을 바탕으로 <br>
+            AI가 학습된 데이터를 통해서 제주도 곳곳의 다양한 여행지와 <br>최적의 일정을 자동으로 추천해 드립니다.<br>
+         여행 추천 과정이 최대한 투명하게 이루어지며, <br>특정 장소나 업체의 영향을 받지 않도록 설계되었습니다.</p>
+      </div>
+    </div>   
+
+
     <!-- 로그인 유무 -->
     <div id="firstmodal" class="modal">
       <div class="modal-content-0">
@@ -499,11 +564,14 @@
           message.textContent = '';
         }
       }
-
+      const how = document.getElementById("how")
       const firstModal = document.getElementById("firstmodal");
       const newModal = document.getElementById("newModal");
       const oldModal = document.getElementById("oldModal");
       const secondModal = document.getElementById("secondModal");
+
+      const openHowBtn = document.getElementById("openHowBtn")
+      const closeHow = document.getElementById("closeHow")
 
       const openModalBtn = document.getElementById("openModalBtn");
       const closeFirstModal = document.getElementById("closeFirstmodal");
@@ -515,6 +583,13 @@
       const goToNextPageBtn = document.getElementById("goToNextPageBtn"); 
       const goToGenderBtn = document.getElementById("goToGenderBtn");
       
+      openHowBtn.onclick = function(){
+        how.style.display = "block";
+      }
+      closeHow.onclick = function(){
+        how.style.display = "none"
+      }
+
     // 로그인 유무 모달 열기
       openModalBtn.onclick = function() {
         firstModal.style.display = "block";
