@@ -8,10 +8,11 @@ import {useEffect} from "react";
 import {useData} from "../../context/DataContext.jsx";
 
 const Main = () => {
-    const {setUserData} = useData();
+    const {setUserData, setTravelData} = useData();
 
     useEffect(() => {
         setUserData({});
+        setTravelData([]);
     }, []);
 
     return (
